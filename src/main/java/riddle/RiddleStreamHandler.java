@@ -21,7 +21,7 @@ public class RiddleStreamHandler extends SkillStreamHandler
             new HelpIntentHandler(),
             new GetRiddleIntentHandler(),
             new GetAnswerIntentHandler(),
-            new FallbackIntentHandler() )
+            new FallbackIntentHandler())
 
 
         .withSkillId("amzn1.ask.skill.5dabbdfb-e2c1-4191-bda7-dc3a6bf61f30")
