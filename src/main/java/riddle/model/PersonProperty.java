@@ -38,7 +38,4 @@ public enum PersonProperty
         this.value = value;
     }
 
-
-
-
 }

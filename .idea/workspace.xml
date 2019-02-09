@@ -3,17 +3,14 @@
   <component name="ChangeListManager">
     <list default="true" id="b3f9076c-e701-4652-980c-6fb565fbe09d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/riddle/Util/RiddleUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/riddle/Util/RiddleUtils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/riddle/handlers/GetRiddleIntentHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/riddle/handlers/GetRiddleIntentHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/riddle/handlers/GiveAnswerIntentHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/riddle/handlers/GiveAnswerIntentHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/riddle/riddle_generator/Characters.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/riddle/riddle_Generator/Characters.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/riddle/riddle_generator/ClothingRiddles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/riddle/riddle_Generator/ClothingRiddles.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/riddle/riddle_generator/EnemyRiddles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/riddle/riddle_Generator/EnemyRiddles.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/riddle/riddle_generator/GenerateRiddles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/riddle/riddle_Generator/GenerateRiddles.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/riddle/riddle_generator/GenreRiddles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/riddle/riddle_Generator/GenreRiddles.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/riddle/riddle_generator/KnowledgeBaseModule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/riddle/riddle_Generator/KnowledgeBaseModule.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/riddle/riddle_generator/Person.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/riddle/riddle_generator/Riddle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/riddle/riddle_Generator/Riddle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/riddle/riddle_generator/VehicleRiddles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/riddle/riddle_Generator/VehicleRiddles.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/riddle/handlers/LaunchRequestHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/riddle/handlers/LaunchRequestHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/riddle/handlers/SessionEndedRequestHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/riddle/handlers/SessionEndedRequestHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/riddle/model/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/riddle/model/Person.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/riddle/model/PersonProperty.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/riddle/model/PersonProperty.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/riddle/riddle_Generator/Riddle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/riddle/riddle_Generator/Riddle.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />

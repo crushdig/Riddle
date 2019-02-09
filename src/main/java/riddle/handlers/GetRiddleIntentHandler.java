@@ -4,85 +4,47 @@ import static com.amazon.ask.request.Predicates.intentName;
 import static com.amazon.ask.request.Predicates.sessionAttribute;
 
 import java.io.IOException;
+import java.util.Map;
 import java.util.Optional;
 
 import com.amazon.ask.dispatcher.request.handler.HandlerInput;
 import com.amazon.ask.dispatcher.request.handler.RequestHandler;
 import com.amazon.ask.model.Response;
 
+import riddle.Util.RiddleUtils;
 import riddle.model.Attributes;
-import riddle.riddle_Generator.GenerateRiddles;
-import riddle.riddle_Generator.Riddle;
 
 
 public class GetRiddleIntentHandler implements RequestHandler 
 {
-  private Riddle riddle;
-  private GenerateRiddles riddles;
+  RiddleUtils genSen;
+  public GetRiddleIntentHandler()
+  {
 
-  public GetRiddleIntentHandler() throws IOException {
-   riddles = new GenerateRiddles();
-   riddle = riddles.randomiseRiddles();
   }
-
   public boolean canHandle(HandlerInput input)
   {
-    return input.matches(intentName("GetRiddleIntent").and(sessionAttribute(Attributes.RIDDLE_STATE_KEY, Attributes.RIDDLE_STATE)))
+    return input.matches(intentName("GetRiddleIntent").and(sessionAttribute(Attributes.RIDDLE_STATE_KEY, Attributes.RIDDLE_STATE).negate()))
             || input.matches(intentName("AMAZON.StartOverIntent"));
   }
 
   @Override
   public Optional<Response> handle(HandlerInput input)
   {
+    Map<String, Object> sessionAttributes = input.getAttributesManager().getSessionAttributes();
+    System.out.println("OUT");
+    sessionAttributes.put(Attributes.RIDDLE_STATE_KEY, Attributes.RIDDLE_STATE);
+    sessionAttributes.put(Attributes.RESPONSE_KEY, "");
+    sessionAttributes.put(Attributes.COUNTER_KEY, 0);
+    sessionAttributes.put(Attributes.RIDDLE_SCORE_KEY, 0);
 
-    String speechText, repromptText;
+    System.out.println("OUT UTILS");
 
-    boolean isAnswerResponse = false;
-
-    if(riddle.getQuestion() != null)
-    {
-      speechText = String.format("Here's a riddle %s. You can ask me for a hint "
-          + "by saying, give me a hint. Answer is %s ", riddle.getQuestion(), riddle.getAnswer());
-
-      repromptText = "You can ask me for a hint by saying, give me a hint.";
-//      if(input.matches(riddleAnswer))
-//      {
-//
-//      }
-
+    try {
+      return genSen.generateSentence(input);
+    } catch (IOException e) {
+      e.printStackTrace();
     }
-    else
-    {
-      speechText = "The answer is not correct. Try again later";
-
-      repromptText = "Unfortunately, I was unable to retrieve a riddle. " +
-                      "Restart the skill and try again";
-    }
-
-//    logger.debug("Hello this is a debug message");
-//    System.out.println("Print In Log File");
-//    logger.info("Hello this is a info message");
-
-//    ResponseBuilder responseBuilder = input.getResponseBuilder();
-//
-//            responseBuilder.withSimpleCard("RiddleSession", speechText)
-//            .withSpeech(speechText)
-//            .withReprompt(repromptText)
-//            .withShouldEndSession(false)
-//            .build();
-//
-//    if(isAnswerResponse)
-//    {
-//      responseBuilder.withShouldEndSession(false)
-//              .withReprompt(repromptText);
-//    }
-//
-//    return responseBuilder.build();
-    return input.getResponseBuilder()
-            .withSimpleCard("RiddleSession", speechText)
-            .withSpeech(speechText)
-            .withReprompt(repromptText)
-            .withShouldEndSession(true)
-            .build();
+    return null;
   }
 }

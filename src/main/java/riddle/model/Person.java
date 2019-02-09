@@ -1,6 +1,10 @@
 package riddle.model;
 
+import riddle.riddle_Generator.KnowledgeBaseModule;
+
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Vector;
 
 public class Person
@@ -14,7 +18,7 @@ public class Person
     private Vector<String> address_Three;
     private Vector<String> politics;
     private Vector<String> marital_Status;
-    private Vector<String> opponenet;
+    private Vector<String> opponent;
     private Vector<String> typical_Activity;
     private Vector<String> vehicle_Of_Choice;
     private Vector<String> weapon_Of_Choice;
@@ -30,6 +34,10 @@ public class Person
     private Vector<String> category;
     private Vector<String> negative_Talking_Points;
     private Vector<String> positive_Talking_Points;
+
+    private KnowledgeBaseModule NOC;
+    private String clientRegion = "eu-west-1";
+    private String bucketName =  "tsv-lists";
 
 
     public Person(Vector<String> character, Vector<String> aka, Vector<String> canonical_Name, Vector<String> gender,
@@ -49,7 +57,7 @@ public class Person
         this.address_Three = address_Three;
         this.politics = politics;
         this.marital_Status = marital_Status;
-        this.opponenet = opponent;
+        this.opponent = opponent;
         this.typical_Activity = typical_Activity;
         this.vehicle_Of_Choice = vehicle_Of_Choice;
         this.weapon_Of_Choice = weapon_Of_Choice;
@@ -66,12 +74,29 @@ public class Person
         this.negative_Talking_Points = negative_Talking_Points;
         this.positive_Talking_Points = positive_Talking_Points;
 
+        NOC = new KnowledgeBaseModule(clientRegion, bucketName, "Veale's The NOC List.txt", 0);
     }
+
+//    public List CHARACTER_DETAILS = Arrays.asList(character, aka, canonical_Name, gender,
+//            address_One, address_Two, address_Three, politics, marital_Status, opponent,typical_Activity,
+//            vehicle_Of_Choice, weapon_Of_Choice, seen_Wearing, domains, genres, fictive_Status, portrayed_By,
+//            creator, creation, group_Affiliation, fictional_World, category,
+//            negative_Talking_Points, positive_Talking_Points);
+
+//    public List<Person> test()
+//    {
+//        return CHARACTER_DETAILS;
+//    }
 
     // gets Name or canonical name of character based on user specification
     public Vector<String> getCharacter()
     {
         return this.character;
+    }
+
+    public Vector<String> getAKA()
+    {
+        return this.aka;
     }
 
     public Vector<String> getCanonicalName()
@@ -111,7 +136,7 @@ public class Person
 
     public Vector<String> getOpponent()
     {
-        return this.opponenet;
+        return this.opponent;
     }
 
     public Vector<String> getTypicalActivity()

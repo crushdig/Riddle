@@ -1,5 +1,6 @@
 package riddle.riddle_Generator;
 
+import riddle.model.Constants;
 import riddle.model.Person;
 
 import java.io.IOException;
@@ -14,6 +15,8 @@ public class Riddle
   private String bucketName =  "tsv-lists";
 
   private KnowledgeBaseModule NOC;
+  private Person characterDetails;
+  private Constants constants;
 
   public Riddle(String question, String answer) throws IOException {
     NOC = new KnowledgeBaseModule(clientRegion, bucketName, "Veale's The NOC List.txt", 0);
@@ -21,7 +24,7 @@ public class Riddle
     this.question = question;
     this.answer = answer; //character being guessed
 
-    Person characterDetails= new Person(NOC.getFieldValues("Character", this.answer), NOC.getFieldValues("AKA", this.answer), NOC.getFieldValues("Canonical Name", this.answer),
+    characterDetails= new Person(NOC.getFieldValues("Character", this.answer), NOC.getFieldValues("AKA", this.answer), NOC.getFieldValues("Canonical Name", this.answer),
             NOC.getFieldValues("Gender", this.answer), NOC.getFieldValues("Address 1", this.answer), NOC.getFieldValues("Address 2", this.answer),
             NOC.getFieldValues("Address 3", this.answer), NOC.getFieldValues("Politics", this.answer), NOC.getFieldValues("Marital Status", this.answer),
             NOC.getFieldValues("Opponent", this.answer), NOC.getFieldValues("Typical Activity", this.answer), NOC.getFieldValues("Vehicle of Choice", this.answer),
@@ -43,6 +46,11 @@ public class Riddle
     return answer;
   }
 
+//  public static Person getPerson()
+//  {
+//    return characterDetails;
+//  }
+
   public static void main(String args[]) throws IOException {
     //have set
     ArrayList<String> riddleSet = new ArrayList<String>(); // set ensures no repetition with riddles occurs, all values are unique
@@ -54,11 +62,11 @@ public class Riddle
 //    {
 //      h = d.randomiseRiddles();
 //    }
-//    riddleSet.add(h);
+//    riddleSet.add(h);e
 
     Scanner s = new Scanner(System.in);
     String f = "y";
-    System.out.println(d);
+//    System.out.println("Hello1 " + getPerson());
     while(f.contains("y"))
     {
       Riddle h = d.randomiseRiddles();
