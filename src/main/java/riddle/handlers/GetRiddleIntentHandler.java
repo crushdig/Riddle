@@ -1,6 +1,7 @@
 package riddle.handlers;
 
 import static com.amazon.ask.request.Predicates.intentName;
+import static com.amazon.ask.request.Predicates.sessionAttribute;
 
 import java.io.IOException;
 import java.util.Optional;
@@ -9,6 +10,7 @@ import com.amazon.ask.dispatcher.request.handler.HandlerInput;
 import com.amazon.ask.dispatcher.request.handler.RequestHandler;
 import com.amazon.ask.model.Response;
 
+import riddle.model.Attributes;
 import riddle.riddle_generator.GenerateRiddles;
 import riddle.riddle_generator.Riddle;
 
@@ -25,8 +27,8 @@ public class GetRiddleIntentHandler implements RequestHandler
 
   public boolean canHandle(HandlerInput input)
   {
-    System.out.println("Hello test");
-    return input.matches(intentName("GetRiddleIntent"));
+    return input.matches(intentName("GetRiddleIntent").and(sessionAttribute(Attributes.RIDDLE_STATE_KEY, Attributes.RIDDLE_STATE)))
+            || input.matches(intentName("AMAZON.StartOverIntent"));
   }
 
   @Override

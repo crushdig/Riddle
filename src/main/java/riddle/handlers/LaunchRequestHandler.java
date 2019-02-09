@@ -4,7 +4,11 @@ import com.amazon.ask.dispatcher.request.handler.HandlerInput;
 import com.amazon.ask.dispatcher.request.handler.RequestHandler;
 import com.amazon.ask.model.LaunchRequest;
 import com.amazon.ask.model.Response;
+import com.sun.tools.internal.jxc.ap.Const;
+import riddle.model.Attributes;
+import riddle.model.Constants;
 
+import java.util.Map;
 import java.util.Optional;
 
 import static com.amazon.ask.request.Predicates.requestType;
@@ -19,12 +23,13 @@ public class LaunchRequestHandler implements RequestHandler
     @Override
     public Optional<Response> handle(HandlerInput input) 
     {
-        String speechText = "Welcome to the Alexa Skills Kit Riddle game, also known as Bolu's swamp. You can start the game by saying, Alexa, riddle me this";
-        String repromptText = "You can start the game by saying, Alexa, riddle me this";
+        Map<String, Object> sessionAttributes = input.getAttributesManager().getSessionAttributes();
+        sessionAttributes.put(Attributes.RIDDLE_STATE_KEY, Attributes.START_STATE);
         return input.getResponseBuilder()
-                .withSimpleCard("RiddleSession", speechText)
-                .withSpeech(speechText)
-                .withReprompt(repromptText)
+                .withSimpleCard("RiddleSession", Constants.WELCOME_MESSAGE)
+                .withSpeech(Constants.WELCOME_MESSAGE)
+                .withReprompt(Constants.HELP_MESSAGE)
+                .withShouldEndSession(false)
                 .build();
     }
 }

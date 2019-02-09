@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b3f9076c-e701-4652-980c-6fb565fbe09d" name="Default Changelist" comment="" />
+    <list default="true" id="b3f9076c-e701-4652-980c-6fb565fbe09d" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/src/main/java/riddle/handlers/GetRiddleIntentHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/riddle/handlers/GetRiddleIntentHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/riddle/handlers/LaunchRequestHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/riddle/handlers/LaunchRequestHandler.java" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -80,6 +83,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="42" y="23" width="1638" height="1027" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25313282" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
