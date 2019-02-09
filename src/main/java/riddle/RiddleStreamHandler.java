@@ -1,0 +1,34 @@
+package riddle;
+
+import com.amazon.ask.Skill;
+import com.amazon.ask.SkillStreamHandler;
+import com.amazon.ask.Skills;
+
+import riddle.handlers.*;
+
+import java.io.IOException;
+
+
+public class RiddleStreamHandler extends SkillStreamHandler
+{
+  @SuppressWarnings("unchecked")
+  private static Skill getSkill() throws IOException {
+    return Skills.standard()
+        .addRequestHandlers(
+            new LaunchRequestHandler(),
+            new CancelandStopIntentHandler(),
+            new SessionEndedRequestHandler(),
+            new HelpIntentHandler(),
+            new GetRiddleIntentHandler(),
+            new GetAnswerIntentHandler(),
+            new FallbackIntentHandler())
+
+
+        .withSkillId("amzn1.ask.skill.5dabbdfb-e2c1-4191-bda7-dc3a6bf61f30")
+        .build();
+  }
+  
+  public RiddleStreamHandler() throws IOException {
+    super(getSkill());
+  }
+}
