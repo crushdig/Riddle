@@ -1,10 +1,7 @@
-package riddle.riddle_generator;
-
-import riddle.riddle_generator.KnowledgeBaseModule;
+package riddle.riddle_Generator;
 
 import java.io.IOException;
 import java.util.HashMap;
-import java.util.Random;
 import java.util.Vector;
 
 public class EnemyRiddles

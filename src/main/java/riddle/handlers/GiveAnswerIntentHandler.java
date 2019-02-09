@@ -2,8 +2,8 @@
 //
 //import com.amazon.ask.dispatcher.request.handler.HandlerInput;
 //import com.amazon.ask.model.Response;
-//import riddle_generator.GenerateRiddles;
-//import riddle_generator.Riddle;
+//import riddle_Generator.GenerateRiddles;
+//import riddle_Generator.Riddle;
 //
 //import java.io.IOException;
 //import java.util.Optional;

@@ -1,4 +1,4 @@
-package riddle.riddle_generator;
+package riddle.riddle_Generator;
 
 import java.io.IOException;
 import java.util.HashMap;

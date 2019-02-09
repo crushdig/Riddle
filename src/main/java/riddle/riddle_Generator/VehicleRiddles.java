@@ -1,6 +1,4 @@
-package riddle.riddle_generator;
-
-import riddle.riddle_generator.KnowledgeBaseModule;
+package riddle.riddle_Generator;
 
 import java.util.HashMap;
 import java.util.Vector;

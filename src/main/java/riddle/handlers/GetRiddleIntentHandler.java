@@ -11,8 +11,8 @@ import com.amazon.ask.dispatcher.request.handler.RequestHandler;
 import com.amazon.ask.model.Response;
 
 import riddle.model.Attributes;
-import riddle.riddle_generator.GenerateRiddles;
-import riddle.riddle_generator.Riddle;
+import riddle.riddle_Generator.GenerateRiddles;
+import riddle.riddle_Generator.Riddle;
 
 
 public class GetRiddleIntentHandler implements RequestHandler 

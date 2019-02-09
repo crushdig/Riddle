@@ -1,4 +1,4 @@
-//package riddle_generator;
+//package riddle_Generator;
 //
 //import java.util.ArrayList;
 //import java.util.Random;
