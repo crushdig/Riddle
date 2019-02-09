@@ -59,15 +59,17 @@ public class GiveAnswerIntentHandler implements RequestHandler {
         return input.getResponseBuilder()
                 .withSimpleCard("RiddleSession", speechText)
                 .withSpeech(speechText)
-                .withReprompt(repromptText)
                 .withShouldEndSession(true)
                 .build();
     }
 
     private boolean compareSlots(Map< String, Slot > slots, Vector< String > correctAnswer) {
         for (Slot slot : slots.values()) {
-            if (slot.getValue() != null && slot.getValue().toLowerCase().equals(correctAnswer.toLowerCase())) {
-                return true;
+            for(int i = 0; i < correctAnswer.size(); i++)
+            {
+                if (slot.getValue() != null && slot.getValue().toLowerCase().equals(correctAnswer.elementAt(i).toLowerCase())) {
+                    return true;
+                }
             }
         }
         return false;
