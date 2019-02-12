@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b3f9076c-e701-4652-980c-6fb565fbe09d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/riddle/handlers/GiveAnswerIntentHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/riddle/handlers/GiveAnswerIntentHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -22,10 +22,10 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="42" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="43" />
     <option name="y" value="23" />
-    <option name="width" value="1638" />
+    <option name="width" value="1637" />
     <option name="height" value="1027" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -34,8 +34,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="ProjectPane" />
       <pane id="PackagesPane" />
+      <pane id="ProjectPane" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -74,17 +74,18 @@
       <updated>1549717439113</updated>
       <workItem from="1549717445644" duration="254000" />
       <workItem from="1549719905540" duration="596000" />
+      <workItem from="1549831229430" duration="467000" />
+      <workItem from="1549879654191" duration="47000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1130000" />
+    <option name="totallyTimeSpent" value="1644000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="42" y="23" width="1638" height="1027" extended-state="6" />
-    <editor active="true" />
+    <frame x="43" y="23" width="1637" height="1027" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25313282" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25956112" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="aws.explorer" order="3" side_tool="true" />

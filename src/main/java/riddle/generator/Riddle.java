@@ -1,4 +1,4 @@
-package riddle.riddle_Generator;
+package riddle.generator;
 
 import riddle.model.Constants;
 import riddle.model.Person;
@@ -16,7 +16,6 @@ public class Riddle
 
   private KnowledgeBaseModule NOC;
   private Person characterDetails;
-  private Constants constants;
 
   public Riddle(String question, String answer) throws IOException {
     NOC = new KnowledgeBaseModule(clientRegion, bucketName, "Veale's The NOC List.txt", 0);
@@ -24,7 +23,7 @@ public class Riddle
     this.question = question;
     this.answer = answer; //character being guessed
 
-    characterDetails= new Person(NOC.getFieldValues("Character", this.answer), NOC.getFieldValues("AKA", this.answer), NOC.getFieldValues("Canonical Name", this.answer),
+    characterDetails= new Person(NOC.getAllFrames(), NOC.getFieldValues("AKA", this.answer), NOC.getFieldValues("Canonical Name", this.answer),
             NOC.getFieldValues("Gender", this.answer), NOC.getFieldValues("Address 1", this.answer), NOC.getFieldValues("Address 2", this.answer),
             NOC.getFieldValues("Address 3", this.answer), NOC.getFieldValues("Politics", this.answer), NOC.getFieldValues("Marital Status", this.answer),
             NOC.getFieldValues("Opponent", this.answer), NOC.getFieldValues("Typical Activity", this.answer), NOC.getFieldValues("Vehicle of Choice", this.answer),
@@ -44,6 +43,11 @@ public class Riddle
   public String getAnswer()
   {
     return answer;
+  }
+
+  public Person getPerson()
+  {
+    return characterDetails;
   }
 
 //  public static Person getPerson()

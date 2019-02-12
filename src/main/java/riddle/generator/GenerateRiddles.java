@@ -1,4 +1,4 @@
-package riddle.riddle_Generator;
+package riddle.generator;
 
 import java.io.IOException;
 import java.util.ArrayList;

@@ -1,10 +1,8 @@
 package riddle.model;
 
-import riddle.riddle_Generator.KnowledgeBaseModule;
+import riddle.generator.KnowledgeBaseModule;
 
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.List;
 import java.util.Vector;
 
 public class Person
@@ -76,17 +74,6 @@ public class Person
 
         NOC = new KnowledgeBaseModule(clientRegion, bucketName, "Veale's The NOC List.txt", 0);
     }
-
-//    public List CHARACTER_DETAILS = Arrays.asList(character, aka, canonical_Name, gender,
-//            address_One, address_Two, address_Three, politics, marital_Status, opponent,typical_Activity,
-//            vehicle_Of_Choice, weapon_Of_Choice, seen_Wearing, domains, genres, fictive_Status, portrayed_By,
-//            creator, creation, group_Affiliation, fictional_World, category,
-//            negative_Talking_Points, positive_Talking_Points);
-
-//    public List<Person> test()
-//    {
-//        return CHARACTER_DETAILS;
-//    }
 
     // gets Name or canonical name of character based on user specification
     public Vector<String> getCharacter()

@@ -1,10 +1,11 @@
-package riddle.riddle_Generator;
+package riddle.generator;
 
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.Random;
 import java.util.Vector;
 
-public class GenreRiddles
+public class ClothingRiddles
 {
   private String clientRegion = "eu-west-1";
   private String bucketName =  "tsv-lists";
@@ -13,14 +14,14 @@ public class GenreRiddles
   private KnowledgeBaseModule CLOTHES    = null;
   private KnowledgeBaseModule VEHICLES   = null;
 
-  public GenreRiddles() throws IOException {
+  public ClothingRiddles() throws IOException {
     NOC = new KnowledgeBaseModule(clientRegion, bucketName, "Veale's The NOC List.txt", 0);
     CATEGORIES = new KnowledgeBaseModule(clientRegion, bucketName, "Veale's Category Hierarchy.txt", 1);
     VEHICLES = new KnowledgeBaseModule(clientRegion, bucketName,"Veale's vehicle fleet.txt", 1);
     CLOTHES = new KnowledgeBaseModule(clientRegion, bucketName, "Veale's clothing line.txt", 1);
   }
 
-  public HashMap<String, String> setupGenreRiddles()
+  public HashMap<String, String> setupClothingRiddles()
   {
     String riddle;
     String riddleAnswer;
@@ -39,41 +40,48 @@ public class GenreRiddles
         possessive_Pronoun = "her".toLowerCase();
       }
 
+      Vector<String> enemies = NOC.getFieldValues("Opponent", character);
       Vector<String> clothes = NOC.getFieldValues("Seen Wearing", character);
-      Vector<String> genres = NOC.getFieldValues("Genres", character);
-      Vector<String> occupations = NOC.getFieldValues("Category", character);
+      Vector<String> address = null;
+      Random RND = new Random();
+
+      int add_Index = RND.nextInt(3);
+      if(add_Index == 1 || add_Index == 2 || add_Index == 3)
+      {
+        address = NOC.getFieldValues("Address " + add_Index , character);
+      }
 
       int k = 0;
       for(k = 0; k < 10; k++)
       {
-        String s_Genres = null, s_Clothes = null, s_Occupations = null;
+
+        String s_Enemies = null, s_Clothes = null, s_Address = null;
         String c_Determiner;
 
-        if(clothes != null && genres !=  null && occupations != null)
+        if(enemies != null && clothes !=  null && address != null)
         {
 
           int j;
 
-          ;
+          for(j = 0; j < enemies.size(); j++)
+          {
+            s_Enemies = (String) enemies.elementAt(j);
+          }
+          enemies.remove(s_Enemies);
+
           for(j = 0; j < clothes.size(); j++)
           {
             s_Clothes = (String) clothes.elementAt(j);
           }
           clothes.remove(s_Clothes);
 
-          for(j = 0; j < genres.size(); j++)
+          for(j = 0; j < address.size(); j++)
           {
-            s_Genres = (String) genres.elementAt(j);
+            s_Address = (String) address.elementAt(j);
           }
-          genres.remove(s_Genres);
+          address.remove(s_Address);
 
-          for(j = 0; j < occupations.size(); j++)
-          {
-            s_Occupations = (String) occupations.elementAt(j);
-          }
-          occupations.remove(s_Occupations);
-
-          if(s_Clothes == null || s_Genres == null || s_Occupations == null)
+          if(s_Enemies == null || s_Clothes == null || s_Address == null)
           {
             continue;
           }
@@ -82,15 +90,15 @@ public class GenreRiddles
 
           if(c_Determiner == null)
           {
-            riddle = "I am " + getIndefiniteArticleFor(s_Occupations) + " " + s_Occupations + ". You'll usually find me in " +
-                    s_Genres + " wearing " + s_Clothes + ". Who am I?";
+            riddle = "I am a big deal. " + "You can spot me wearing " + s_Clothes + " lurking around " + s_Address +
+                    ". If I had a choice, I would make " + s_Enemies + " public enemy number 1. Who am I?";
             riddleAnswer = character;
             riddles.put(riddle, riddleAnswer);
           }
           else
           {
-            riddle = "I am " + getIndefiniteArticleFor(s_Occupations) + " " + s_Occupations + ". You'll usually find me in " +
-                    s_Genres + " wearing " + c_Determiner + " " + s_Clothes + ". Who am I?";
+            riddle = "I am a big deal. " + "You can spot me wearing " + c_Determiner + " " + s_Clothes + " lurking around " + s_Address +
+                    ". If I had a choice, I would make " + s_Enemies + " public enemy number 1. Who am I?";
             riddleAnswer = character;
             riddles.put(riddle, riddleAnswer);
           }

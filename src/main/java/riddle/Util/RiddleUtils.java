@@ -5,8 +5,8 @@ import com.amazon.ask.model.Response;
 import riddle.model.Attributes;
 import riddle.model.Person;
 import riddle.model.PersonProperty;
-import riddle.riddle_Generator.GenerateRiddles;
-import riddle.riddle_Generator.Riddle;
+import riddle.generator.GenerateRiddles;
+import riddle.generator.Riddle;
 
 import java.io.IOException;
 import java.util.Map;
@@ -18,7 +18,6 @@ import static riddle.model.Constants.START_RIDDLE_GAME_MESSAGE;
 public class RiddleUtils
 {
     private Riddle riddle;
-    private Person person;
     private GenerateRiddles riddles;
 
 
@@ -40,11 +39,13 @@ public class RiddleUtils
 
         counter++;
 
-//        Person person = getPerson();
-//        sessionAttributes.put(Attributes.RIDDLE_ITEM_KEY, person);
+        RiddleUtils val = new RiddleUtils();
+        Person characterDetails = val.getPerson();
+
+        sessionAttributes.put(Attributes.RIDDLE_ITEM_KEY, characterDetails);
         sessionAttributes.put(Attributes.COUNTER_KEY, counter);
 
-        RiddleUtils val = new RiddleUtils();
+
         String question = val.getRiddle(counter);
         String speechText = sessionAttributes.get(Attributes.RESPONSE_KEY) + question;
 
@@ -57,7 +58,7 @@ public class RiddleUtils
 
     }
 
-    public static Vector< String > getPropertyOfPerson(PersonProperty personProperty, Person person) {
+    public static Vector<String> getPropertyOfPerson(PersonProperty personProperty, Person person) {
         switch (personProperty) {
             case CHARACTER:
                 return person.getCharacter();
@@ -72,13 +73,12 @@ public class RiddleUtils
 
 
     public String getRiddle(int counter) {
-        return "Here is your " + counter + "th question. " + riddle.getQuestion() +
-                " Answer " + riddle.getAnswer();
+        return "Here is your " + counter + "th question. " + riddle.getQuestion();
     }
 
-//    public Person getPerson()
-//    {
-//        return CHARACTER_DETAILS.get(0);
-//    }
+    public Person getPerson()
+    {
+        return riddle.getPerson();
+    }
 
 }
