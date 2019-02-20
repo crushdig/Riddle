@@ -1,6 +1,5 @@
 package riddle.generator;
 
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.Vector;
 
@@ -13,7 +12,7 @@ public class GenreRiddles
   private KnowledgeBaseModule CLOTHES    = null;
   private KnowledgeBaseModule VEHICLES   = null;
 
-  public GenreRiddles() throws IOException {
+  public GenreRiddles() {
     NOC = new KnowledgeBaseModule(clientRegion, bucketName, "Veale's The NOC List.txt", 0);
     CATEGORIES = new KnowledgeBaseModule(clientRegion, bucketName, "Veale's Category Hierarchy.txt", 1);
     VEHICLES = new KnowledgeBaseModule(clientRegion, bucketName,"Veale's vehicle fleet.txt", 1);
@@ -27,7 +26,7 @@ public class GenreRiddles
     HashMap<String, String> riddles = new HashMap<>();
     Vector<String> listOfCharacters = NOC.getAllFrames();
 
-    for(String character: listOfCharacters)
+    for(String character : listOfCharacters)
     {
       // second loop to generate multiple riddles for a character having multiple values for certain columns
       String pronoun = "he".toLowerCase();

@@ -8,7 +8,6 @@ import riddle.model.PersonProperty;
 import riddle.generator.GenerateRiddles;
 import riddle.generator.Riddle;
 
-import java.io.IOException;
 import java.util.Map;
 import java.util.Optional;
 import java.util.Vector;
@@ -21,13 +20,11 @@ public class RiddleUtils
     private GenerateRiddles riddles;
 
 
-    public RiddleUtils() throws IOException {
+    public RiddleUtils() {
         riddles = new GenerateRiddles();
         riddle = riddles.randomiseRiddles();
-//        person =
-
     }
-    public static Optional<Response> generateSentence(HandlerInput input) throws IOException {
+    public static Optional<Response> generateSentence(HandlerInput input) {
         Map<String, Object> sessionAttributes = input.getAttributesManager().getSessionAttributes();
 
         int counter  = (int) sessionAttributes.get(Attributes.COUNTER_KEY);
@@ -79,6 +76,13 @@ public class RiddleUtils
     public Person getPerson()
     {
         return riddle.getPerson();
+    }
+
+    public static void main(String[] args) {
+        RiddleUtils v = new RiddleUtils();
+
+        System.out.println(v.getPerson());
+
     }
 
 }

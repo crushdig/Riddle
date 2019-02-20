@@ -1,11 +1,11 @@
 package riddle.generator;
 
-import riddle.model.Constants;
 import riddle.model.Person;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.Vector;
 
 public class Riddle
 {
@@ -17,13 +17,16 @@ public class Riddle
   private KnowledgeBaseModule NOC;
   private Person characterDetails;
 
-  public Riddle(String question, String answer) throws IOException {
+  public Riddle(String question, String answer) {
     NOC = new KnowledgeBaseModule(clientRegion, bucketName, "Veale's The NOC List.txt", 0);
 
     this.question = question;
     this.answer = answer; //character being guessed
 
-    characterDetails= new Person(NOC.getAllFrames(), NOC.getFieldValues("AKA", this.answer), NOC.getFieldValues("Canonical Name", this.answer),
+    Vector<String> characterName = new Vector<String>(1);
+    characterName.add(this.answer);
+
+    characterDetails = new Person(characterName, NOC.getFieldValues("AKA", this.answer), NOC.getFieldValues("Canonical Name", this.answer),
             NOC.getFieldValues("Gender", this.answer), NOC.getFieldValues("Address 1", this.answer), NOC.getFieldValues("Address 2", this.answer),
             NOC.getFieldValues("Address 3", this.answer), NOC.getFieldValues("Politics", this.answer), NOC.getFieldValues("Marital Status", this.answer),
             NOC.getFieldValues("Opponent", this.answer), NOC.getFieldValues("Typical Activity", this.answer), NOC.getFieldValues("Vehicle of Choice", this.answer),
@@ -32,6 +35,10 @@ public class Riddle
             NOC.getFieldValues("Creator", this.answer), NOC.getFieldValues("Creation", this.answer), NOC.getFieldValues("Group Affiliation", this.answer),
             NOC.getFieldValues("Fictional World", this.answer), NOC.getFieldValues("Category", this.answer), NOC.getFieldValues("Negative Talking Points", this.answer),
             NOC.getFieldValues("Positive Talking Points", this.answer));
+
+
+    System.out.println(characterDetails.getCharacter());
+
 
   }
 
@@ -50,10 +57,6 @@ public class Riddle
     return characterDetails;
   }
 
-//  public static Person getPerson()
-//  {
-//    return characterDetails;
-//  }
 
   public static void main(String args[]) throws IOException {
     //have set

@@ -50,7 +50,7 @@ public class KnowledgeBaseModule
         loadKnowledgeBaseFrom(filename, 0);
     }
 
-    public KnowledgeBaseModule(String clientRegion, String bucketName, String fileName, int keyPosition) throws IOException {
+    public KnowledgeBaseModule(String clientRegion, String bucketName, String fileName, int keyPosition)  {
         loadKnowledgeBaseFromS3(clientRegion, bucketName, fileName, keyPosition);
     }
 
@@ -713,7 +713,7 @@ public class KnowledgeBaseModule
 
     }
 
-    public void loadKnowledgeBaseFromS3(String clientRegion, String bucketName, String filename, int keyPosition) throws IOException
+    public void loadKnowledgeBaseFromS3(String clientRegion, String bucketName, String filename, int keyPosition)
     {
         S3Object objectData = new S3Object();
         try{
@@ -741,7 +741,11 @@ public class KnowledgeBaseModule
         finally {
             // To ensure that the network connection doesn't remain open, close any open input streams.
             if(objectData != null) {
-                objectData.close();
+                try {
+                    objectData.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
         }
     }

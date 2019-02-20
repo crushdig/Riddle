@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Constants
 {
-    public static String WELCOME_MESSAGE = "Welcome to Blank's Riddle Game! I will soon have other features for you to have fun with but for now, " +
+    public static String WELCOME_MESSAGE = "Welcome to Blank's Riddle Game! I will soon have other features for you to have fun with. " +
             "you can ask me to start a riddle game.  What would you like to do?";
 
     public static String START_RIDDLE_GAME_MESSAGE = "OK.  I will ask you 10 riddles based on real and fictional people.";

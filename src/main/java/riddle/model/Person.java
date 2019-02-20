@@ -1,8 +1,5 @@
 package riddle.model;
 
-import riddle.generator.KnowledgeBaseModule;
-
-import java.io.IOException;
 import java.util.Vector;
 
 public class Person
@@ -33,10 +30,6 @@ public class Person
     private Vector<String> negative_Talking_Points;
     private Vector<String> positive_Talking_Points;
 
-    private KnowledgeBaseModule NOC;
-    private String clientRegion = "eu-west-1";
-    private String bucketName =  "tsv-lists";
-
 
     public Person(Vector<String> character, Vector<String> aka, Vector<String> canonical_Name, Vector<String> gender,
                   Vector<String> address_One, Vector<String> address_Two, Vector<String> address_Three,
@@ -44,7 +37,7 @@ public class Person
                   Vector<String> vehicle_Of_Choice, Vector<String> weapon_Of_Choice, Vector<String> seen_Wearing, Vector<String> domains,
                   Vector<String> genres, Vector<String> fictive_Status, Vector<String> portrayed_By, Vector<String> creator,
                   Vector<String> creation, Vector<String> group_Affiliation, Vector<String> fictional_World, Vector<String> category,
-                  Vector<String> negative_Talking_Points, Vector<String> positive_Talking_Points) throws IOException {
+                  Vector<String> negative_Talking_Points, Vector<String> positive_Talking_Points) {
 
         this.character = character;
         this.aka = aka;
@@ -71,8 +64,6 @@ public class Person
         this.category = category;
         this.negative_Talking_Points = negative_Talking_Points;
         this.positive_Talking_Points = positive_Talking_Points;
-
-        NOC = new KnowledgeBaseModule(clientRegion, bucketName, "Veale's The NOC List.txt", 0);
     }
 
     // gets Name or canonical name of character based on user specification
@@ -200,7 +191,5 @@ public class Person
     {
         return this.positive_Talking_Points;
     }
-
-
 
 }

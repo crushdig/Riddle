@@ -1,6 +1,5 @@
 package riddle.generator;
 
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.Vector;
 
@@ -14,7 +13,7 @@ public class EnemyRiddles
     private KnowledgeBaseModule WEAPONS      = null;
 
 
-    public EnemyRiddles() throws IOException {
+    public EnemyRiddles() {
         NOC = new KnowledgeBaseModule(clientRegion, bucketName, "Veale's The NOC List.txt", 0);
         VEHICLES = new KnowledgeBaseModule(clientRegion, bucketName,"Veale's vehicle fleet.txt", 1);
         CLOTHES = new KnowledgeBaseModule(clientRegion, bucketName, "Veale's clothing line.txt", 1);

@@ -1,6 +1,5 @@
 package riddle.generator;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Random;
@@ -18,7 +17,7 @@ public class GenerateRiddles{
 //    return character;
 //  }
 
-    public Riddle randomiseRiddles() throws IOException {
+    public Riddle randomiseRiddles() {
         Random RND = new Random();
 //    VehicleRiddles A =  new VehicleRiddles();
         ClothingRiddles E = new ClothingRiddles();
@@ -29,14 +28,14 @@ public class GenerateRiddles{
         HashMap<String, String> riddle_And_answer_Collection = new HashMap<String, String>();
 //    HashMap<String, String> vehicle_Riddle_and_Answer_Collection = A.setupVehicleRiddles();
         HashMap<String, String> clothing_Riddle_and_Answer_Collection = E.setupClothingRiddles();
-        HashMap<String, String> genre_Riddle_and_Answer_Collection = I.setupGenreRiddles();
-        HashMap<String, String> enemy_Riddle_and_Answer_Collection = O.setupEnemyRiddles();
+//        HashMap<String, String> genre_Riddle_and_Answer_Collection = I.setupGenreRiddles();
+//        HashMap<String, String> enemy_Riddle_and_Answer_Collection = O.setupEnemyRiddles();
 
 
 //    riddle_And_answer_Collection.putAll(vehicle_Riddle_and_Answer_Collection);
     riddle_And_answer_Collection.putAll(clothing_Riddle_and_Answer_Collection);
-    riddle_And_answer_Collection.putAll(genre_Riddle_and_Answer_Collection);
-    riddle_And_answer_Collection.putAll(enemy_Riddle_and_Answer_Collection);
+//    riddle_And_answer_Collection.putAll(genre_Riddle_and_Answer_Collection);
+//    riddle_And_answer_Collection.putAll(enemy_Riddle_and_Answer_Collection);
 
         Set<String>riddles = riddle_And_answer_Collection.keySet();
 

@@ -18,10 +18,7 @@ import riddle.model.Attributes;
 public class GetRiddleIntentHandler implements RequestHandler 
 {
   RiddleUtils genSen;
-  public GetRiddleIntentHandler()
-  {
 
-  }
   public boolean canHandle(HandlerInput input)
   {
     return input.matches(intentName("GetRiddleIntent").and(sessionAttribute(Attributes.RIDDLE_STATE_KEY, Attributes.RIDDLE_STATE).negate()))
@@ -40,11 +37,6 @@ public class GetRiddleIntentHandler implements RequestHandler
 
     System.out.println("OUT UTILS");
 
-    try {
-      return genSen.generateSentence(input);
-    } catch (IOException e) {
-      e.printStackTrace();
-    }
-    return null;
+    return genSen.generateSentence(input);
   }
 }
