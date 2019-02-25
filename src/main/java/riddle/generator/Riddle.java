@@ -58,7 +58,7 @@ public class Riddle
   }
 
 
-  public static void main(String args[]) throws IOException {
+  public static void main(String args[]) {
     //have set
     ArrayList<String> riddleSet = new ArrayList<String>(); // set ensures no repetition with riddles occurs, all values are unique
     GenerateRiddles d = new GenerateRiddles();

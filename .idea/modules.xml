@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/../Riddle/Riddle.iml" filepath="$PROJECT_DIR$/../Riddle/Riddle.iml" />
-      <module fileurl="file://$PROJECT_DIR$/quiz.iml" filepath="$PROJECT_DIR$/quiz.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Riddle.iml" filepath="$PROJECT_DIR$/Riddle.iml" />
     </modules>
   </component>
 </project>
