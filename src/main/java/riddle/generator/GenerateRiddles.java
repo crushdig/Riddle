@@ -7,16 +7,6 @@ import java.util.Set;
 
 public class GenerateRiddles{
 
-//  private Characters characters = new Characters();
-
-//  public String getCharacter()
-//  {
-//    Person person = characters.getRandomPersonFromCharacter();
-//    String character = person.getName();
-//
-//    return character;
-//  }
-
     public Riddle randomiseRiddles() {
         Random RND = new Random();
 //    VehicleRiddles A =  new VehicleRiddles();
