@@ -6,30 +6,34 @@ public class Person
 {
     private Vector<String> character;
     private Vector<String> aka;
-    private Vector<String> canonical_Name;
+    private Vector<String> canonicalName;
     private Vector<String> gender;
-    private Vector<String> address_One;
-    private Vector<String> address_Two;
-    private Vector<String> address_Three;
+    private Vector<String> addressOne;
+    private Vector<String> addressTwo;
+    private Vector<String> addressThree;
     private Vector<String> politics;
-    private Vector<String> marital_Status;
+    private Vector<String> maritalStatus;
     private Vector<String> opponent;
-    private Vector<String> typical_Activity;
-    private Vector<String> vehicle_Of_Choice;
-    private Vector<String> weapon_Of_Choice;
-    private Vector<String> seen_Wearing;
+    private Vector<String> typicalActivity;
+    private Vector<String> vehicleOfChoice;
+    private Vector<String> weaponOfChoice;
+    private Vector<String> clothing;
     private Vector<String> domains;
     private Vector<String> genres;
-    private Vector<String> fictive_Status;
-    private Vector<String> portrayed_By;
+    private Vector<String> fictiveStatus;
+    private Vector<String> personPortrayal;
     private Vector<String> creator;
     private Vector<String> creation;
-    private Vector<String> group_Affiliation;
-    private Vector<String> fictional_World;
+    private Vector<String> groupAffiliation;
+    private Vector<String> fictionalWorld;
     private Vector<String> category;
-    private Vector<String> negative_Talking_Points;
-    private Vector<String> positive_Talking_Points;
+    private Vector<String> negativeTalkingPoints;
+    private Vector<String> positiveTalkingPoints;
 
+    public Person()
+    {
+
+    }
 
     public Person(Vector<String> character, Vector<String> aka, Vector<String> canonical_Name, Vector<String> gender,
                   Vector<String> address_One, Vector<String> address_Two, Vector<String> address_Three,
@@ -41,29 +45,29 @@ public class Person
 
         this.character = character;
         this.aka = aka;
-        this.canonical_Name = canonical_Name;
+        this.canonicalName = canonical_Name;
         this.gender = gender;
-        this.address_One = address_One;
-        this.address_Two = address_Two;
-        this.address_Three = address_Three;
+        this.addressOne = address_One;
+        this.addressTwo = address_Two;
+        this.addressThree = address_Three;
         this.politics = politics;
-        this.marital_Status = marital_Status;
+        this.maritalStatus = marital_Status;
         this.opponent = opponent;
-        this.typical_Activity = typical_Activity;
-        this.vehicle_Of_Choice = vehicle_Of_Choice;
-        this.weapon_Of_Choice = weapon_Of_Choice;
-        this.seen_Wearing = seen_Wearing;
+        this.typicalActivity = typical_Activity;
+        this.vehicleOfChoice = vehicle_Of_Choice;
+        this.weaponOfChoice = weapon_Of_Choice;
+        this.clothing = seen_Wearing;
         this.domains = domains;
         this.genres = genres;
-        this.fictive_Status = fictive_Status;
-        this.portrayed_By = portrayed_By;
+        this.fictiveStatus = fictive_Status;
+        this.personPortrayal = portrayed_By;
         this.creator = creator;
         this.creation = creation;
-        this.group_Affiliation = group_Affiliation;
-        this.fictional_World = fictional_World;
+        this.groupAffiliation = group_Affiliation;
+        this.fictionalWorld = fictional_World;
         this.category = category;
-        this.negative_Talking_Points = negative_Talking_Points;
-        this.positive_Talking_Points = positive_Talking_Points;
+        this.negativeTalkingPoints = negative_Talking_Points;
+        this.positiveTalkingPoints = positive_Talking_Points;
     }
 
     // gets Name or canonical name of character based on user specification
@@ -79,7 +83,7 @@ public class Person
 
     public Vector<String> getCanonicalName()
     {
-        return this.canonical_Name;
+        return this.canonicalName;
     }
 
     public Vector<String> getGender()
@@ -89,17 +93,17 @@ public class Person
 
     public Vector<String> getAddressOne()
     {
-        return this.address_One;
+        return this.addressOne;
     }
 
     public Vector<String> getAddressTwo()
     {
-        return this.address_Two;
+        return this.addressTwo;
     }
 
     public Vector<String> getAddressThree()
     {
-        return this.address_Three;
+        return this.addressThree;
     }
 
     public Vector<String> getPoliticalStance()
@@ -109,7 +113,7 @@ public class Person
 
     public Vector<String> getMaritalStatus()
     {
-        return  this.marital_Status;
+        return  this.maritalStatus;
     }
 
     public Vector<String> getOpponent()
@@ -119,22 +123,22 @@ public class Person
 
     public Vector<String> getTypicalActivity()
     {
-        return this.typical_Activity;
+        return this.typicalActivity;
     }
 
     public Vector<String> getVehicleOfChoice()
     {
-        return this.vehicle_Of_Choice;
+        return this.vehicleOfChoice;
     }
 
     public Vector<String> getWeaponOfChoice()
     {
-        return this.weapon_Of_Choice;
+        return this.weaponOfChoice;
     }
 
     public Vector<String> getClothing()
     {
-        return this.seen_Wearing;
+        return this.clothing;
     }
 
     public Vector<String> getDomains()
@@ -149,12 +153,12 @@ public class Person
 
     public Vector<String> getFicitiveStatus()
     {
-        return this.fictive_Status;
+        return this.fictiveStatus;
     }
 
     public Vector<String> getPersonPortrayal()
     {
-        return this.portrayed_By;
+        return this.personPortrayal;
     }
 
     public Vector<String> getCreator()
@@ -169,12 +173,12 @@ public class Person
 
     public Vector<String> getGroupAffiliation()
     {
-        return this.group_Affiliation;
+        return this.groupAffiliation;
     }
 
     public Vector<String> getFictionalWorld()
     {
-        return this.fictional_World;
+        return this.fictionalWorld;
     }
 
     public Vector<String> getCategory()
@@ -184,12 +188,137 @@ public class Person
 
     public Vector<String> getNegativeTalkingPoints()
     {
-        return this.negative_Talking_Points;
+        return this.negativeTalkingPoints;
     }
 
     public Vector<String> getPositiveTalkingPoints()
     {
-        return this.positive_Talking_Points;
+        return this.positiveTalkingPoints;
+    }
+
+    public void setCharacter(Vector<String> character)
+    {
+        this.character = character;
+    }
+
+    public void setAKA(Vector<String> aka)
+    {
+        this.aka = aka;
+    }
+
+    public void setCanonicalName(Vector<String> canonicalName)
+    {
+        this.canonicalName = canonicalName;
+    }
+
+    public void setGender(Vector<String> gender)
+    {
+        this.gender = gender;
+    }
+
+    public void setAddressOne(Vector<String> addressOne)
+    {
+        this.addressOne = addressOne;
+    }
+
+    public void setAddressTwo(Vector<String> addressTwo)
+    {
+        this.addressTwo = addressTwo;
+    }
+
+    public void setAddressThree(Vector<String> addressThree)
+    {
+        this.addressThree =  addressThree;
+    }
+
+    public void setPoliticalStance(Vector<String> politics)
+    {
+        this.politics = politics;
+    }
+
+    public void setMaritalStatus(Vector<String> maritalStatus)
+    {
+        this.maritalStatus =  maritalStatus;
+    }
+
+    public void setOpponent(Vector<String> opponent)
+    {
+        this.opponent = opponent;
+    }
+
+    public void setTypicalActivity(Vector<String> typicalActivity)
+    {
+        this.typicalActivity = typicalActivity;
+    }
+
+    public void setVehicleOfChoice(Vector<String> vehicleOfChoice)
+    {
+        this.vehicleOfChoice = vehicleOfChoice;
+    }
+
+    public void setWeaponOfChoice(Vector<String> weaponOfChoice)
+    {
+        this.weaponOfChoice = weaponOfChoice;
+    }
+
+    public void setClothing(Vector<String> clothing)
+    {
+        this.clothing = clothing;
+    }
+
+    public void setDomains(Vector<String> domains)
+    {
+        this.domains = domains;
+    }
+
+    public void setGenres(Vector<String> genres)
+    {
+        this.genres = genres;
+    }
+
+    public void setFicitiveStatus(Vector<String> fictiveStatus)
+    {
+        this.fictiveStatus = fictiveStatus;
+    }
+
+    public void setPersonPortrayal(Vector<String> portrayedBy)
+    {
+        this.personPortrayal = portrayedBy;
+    }
+
+    public void setCreator(Vector<String> creator)
+    {
+        this.creator = creator;
+    }
+
+    public void setCreation(Vector<String> creation)
+    {
+        this.creation = creation;
+    }
+
+    public void getGroupAffiliation(Vector<String> groupAffiliation)
+    {
+        this.groupAffiliation = groupAffiliation;
+    }
+
+    public void getFictionalWorld(Vector<String> fictionalWorld)
+    {
+        this.fictionalWorld = fictionalWorld;
+    }
+
+    public void setCategory(Vector<String> category)
+    {
+        this.category = category;
+    }
+
+    public void getNegativeTalkingPoints(Vector<String> negativeTalkingPoints)
+    {
+        this.negativeTalkingPoints = negativeTalkingPoints;
+    }
+
+    public void getPositiveTalkingPoints(Vector<String> positiveTalkingPoints)
+    {
+        this.positiveTalkingPoints = positiveTalkingPoints;
     }
 
 }

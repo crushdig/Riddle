@@ -55,15 +55,18 @@ public class AnswerIntentHandler implements RequestHandler {
 
 
         Map<String, String> riddleItem = (LinkedHashMap<String, String>)sessionAttributes.get(Attributes.RIDDLE_ITEM_KEY);
-        System.out.println("riddleItem " + riddleItem);
-        Person person = MAPPER.convertValue(riddleItem, Person.class); // ERROR OCCURS ON THIS LINE
-        System.out.println("This a THIRD debug");
+        Person person;
 
-//        PersonProperty personProperty = PersonProperty.valueOf((String) sessionAttributes.get(Attributes.RIDDLE_PROPERTY_KEY));
+        System.out.println("riddleItem " + riddleItem);
+        person = MAPPER.convertValue(riddleItem, Person.class); // ERROR OCCURS ON THIS LINE
+
+        System.out.println("This a THIRD debug");
+//
+        PersonProperty personProperty = PersonProperty.valueOf((String) sessionAttributes.get(Attributes.RIDDLE_PROPERTY_KEY));
 //        int counter = (int) sessionAttributes.get(Attributes.COUNTER_KEY);
 //        int riddleGameScore = (int) sessionAttributes.get(Attributes.RIDDLE_SCORE_KEY);
 //        System.out.println("This a FOURTH debug");
-
+//
 //        IntentRequest intentRequest = (IntentRequest) input.getRequestEnvelope().getRequest();
 //        correctAnswer = compareSlots(intentRequest.getIntent().getSlots(), getPropertyOfPerson(personProperty, person));
 //        System.out.println("This a FIFTH debug " + correctAnswer);
@@ -82,21 +85,23 @@ public class AnswerIntentHandler implements RequestHandler {
 //            System.out.println("This a SEVENTH debug " + response);
 //
 //        }
-
+//
 //        AnswerIntentHandler setup = new AnswerIntentHandler();
-
+//
         if(riddle.getAnswer() != null)
         {
             speechText = "Hello " + riddle.getAnswer();
         }
-//        try {
-//            AnswerIntentHandler setup = new AnswerIntentHandler();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
+
+        return input.getResponseBuilder()
+                .withSimpleCard("RiddleSession", speechText)
+                .withSpeech(speechText)
+                .withShouldEndSession(true)
+                .build();
+
 //
-////        response += getAnswerText(personProperty, person);
-////        System.out.println("This a EIGHT debug " + response);
+//        response += getAnswerText(personProperty, person);
+//        System.out.println("This a EIGHT debug " + response);
 //
 //
 //        if(counter < 10)
@@ -104,12 +109,9 @@ public class AnswerIntentHandler implements RequestHandler {
 //            response += "Your current score is " + riddleGameScore + " out of " + counter + ". ";
 //            sessionAttributes.put(Attributes.RESPONSE_KEY, response);
 //            Optional<Response> generateRiddle = null;
-//            try {
-//                generateRiddle = RiddleUtils.generateSentence(input);
-//                System.out.println("This a NINTH debug " + generateRiddle);
-//            } catch (IOException e) {
-//                e.printStackTrace();
-//            }
+//
+//            generateRiddle = RiddleUtils.generateSentence(input);
+//            System.out.println("This a NINTH debug " + generateRiddle);
 //
 //            return generateRiddle;
 //        }
@@ -125,23 +127,23 @@ public class AnswerIntentHandler implements RequestHandler {
 //                    .build();
 //        }
 
-        return input.getResponseBuilder()
-                .withSimpleCard("RiddleSession", speechText)
-                .withSpeech(speechText)
-                .withShouldEndSession(true)
-                .build();
+//       return input.getResponseBuilder()
+//                .withSimpleCard("RiddleSession", speechText)
+//                .withSpeech(speechText)
+//                .withShouldEndSession(true)
+//                .build();
     }
+
+    public Person getPerson()
+    {
+        return riddle.getPerson();
+    }
+
 
     public String getAnswerText(PersonProperty personProperty, Person person) {
         switch(personProperty) {
             case CHARACTER:
-                for(String character: person.getCharacter())
-                {
-                    if(character.equals(riddle.getAnswer()))
-                    {
-                        return "I am an interesting " + personProperty.getValue() + ". The one and only " + character;
-                    }
-                }
+                return "I am an interesting " + personProperty.getValue() + ". The one and only " + person.getCharacter();
             default:
                 return "I am The one and only " + person.getCharacter();
         }
@@ -185,17 +187,4 @@ public class AnswerIntentHandler implements RequestHandler {
         }
         return false;
     }
-
-//    public static void main(String[] args) {
-//        PersonProperty personProperty = PersonProperty.valueOf(String;
-//
-//        try {
-//            AnswerIntentHandler a = new AnswerIntentHandler();
-//            System.out.println(a.getAnswerText(personProperty));
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//
-//
-//    }
 }
