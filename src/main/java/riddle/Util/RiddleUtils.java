@@ -38,8 +38,10 @@ public class RiddleUtils
 
         RiddleUtils val = new RiddleUtils();
         Person characterDetails = val.getPerson();
+        PersonProperty personProperty = getProperties();
 
         sessionAttributes.put(Attributes.RIDDLE_ITEM_KEY, characterDetails);
+        sessionAttributes.put(Attributes.RIDDLE_PROPERTY_KEY, personProperty);
         sessionAttributes.put(Attributes.COUNTER_KEY, counter);
 
 
@@ -64,8 +66,9 @@ public class RiddleUtils
             case CANONICAL_NAME:
                 return person.getCanonicalName();
         }
-        throw new IllegalStateException("Invalid stateProperty");
+        throw new IllegalStateException("Invalid personProperty");
     }
+
 
 
 
@@ -78,11 +81,8 @@ public class RiddleUtils
         return riddle.getPerson();
     }
 
-    public static void main(String[] args) {
-        RiddleUtils v = new RiddleUtils();
-
-        System.out.println(v.getPerson());
-
+    private static PersonProperty getProperties() {
+        return PersonProperty.values()[0];
     }
 
 }
