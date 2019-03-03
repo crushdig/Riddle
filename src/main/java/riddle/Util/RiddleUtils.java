@@ -16,7 +16,7 @@ import static riddle.model.Constants.START_RIDDLE_GAME_MESSAGE;
 
 public class RiddleUtils
 {
-    private Riddle riddle;
+    private static Riddle riddle;
     private GenerateRiddles riddles;
 
 
@@ -57,14 +57,24 @@ public class RiddleUtils
 
     }
 
+    public static String getQuestionText(int counter) {
+        return "Here is your " + counter + "th riddle. " + riddle.getQuestion();
+    }
+
+
     public static Vector<String> getPropertyOfPerson(PersonProperty personProperty, Person person) {
+
         switch (personProperty) {
             case CHARACTER:
-                return person.getCharacter();
-            case AKA:
-                return person.getAKA();
-            case CANONICAL_NAME:
-                return person.getCanonicalName();
+                Vector<String> toReturn = new Vector<>();
+                toReturn.addAll(person.getCharacter());
+                toReturn.addAll(person.getCanonicalName());
+
+                if (person.getAKA()!=null)
+                {
+                    toReturn.addAll(person.getAKA());
+                }
+                return toReturn;
         }
         throw new IllegalStateException("Invalid personProperty");
     }
@@ -72,8 +82,9 @@ public class RiddleUtils
 
 
 
+
     public String getRiddle(int counter) {
-        return "Here is your " + counter + "th question. " + riddle.getQuestion();
+        return "Here is your " + counter + "th riddle. " + riddle.getQuestion();
     }
 
     public Person getPerson()
@@ -84,5 +95,4 @@ public class RiddleUtils
     private static PersonProperty getProperties() {
         return PersonProperty.values()[0];
     }
-
 }

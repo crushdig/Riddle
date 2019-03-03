@@ -46,7 +46,7 @@ public class AnswerIntentHandler implements RequestHandler {
         Map<String, Object> sessionAttributes = input.getAttributesManager().getSessionAttributes();
 
         boolean correctAnswer;
-        String speechText = null, response;
+        String speechText, response;
 
         Map<String, String> riddleItem = (LinkedHashMap<String, String>)sessionAttributes.get(Attributes.RIDDLE_ITEM_KEY);
         Person person = MAPPER.convertValue(riddleItem, Person.class);
@@ -65,7 +65,6 @@ public class AnswerIntentHandler implements RequestHandler {
         {
             riddleGameScore++;
             response = getSpeechExpressionCon(true);
-            System.out.println("This a SIXTH debug " + response);
 
             sessionAttributes.put(Attributes.RIDDLE_SCORE_KEY, riddleGameScore);
         }
@@ -100,20 +99,12 @@ public class AnswerIntentHandler implements RequestHandler {
                     .withShouldEndSession(true)
                     .build();
         }
-
-//        speechText = "hello";
-//
-//        return input.getResponseBuilder()
-//                .withSimpleCard("RiddleSession", speechText)
-//                .withSpeech(speechText)
-//                .withShouldEndSession(true)
-//                .build();
     }
 
     public String getAnswerText(PersonProperty personProperty, Person person) {
         switch(personProperty) {
             case CHARACTER:
-                return "I am an interesting " + personProperty.getValue() + ". The one and only " + person.getCharacter() + ".";
+                return "I have an interesting " + personProperty.getValue() + ". I'm the one and only " + person.getCharacter() + ". ";
             default:
                 return "I am The one and only " + person.getCharacter();
         }

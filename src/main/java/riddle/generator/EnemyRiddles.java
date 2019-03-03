@@ -113,7 +113,7 @@ public class EnemyRiddles
                         riddleAnswer = s_Enemies;
                         riddles.put(riddle, riddleAnswer);
                     }
-                    else
+                    if(c_Determiner != null && w_Determiner != null)
                     {
                         riddle = "My name is " + character + ". I'm present in a lot of " + s_Genres + " wearing " + c_Determiner + " " + s_Clothes +
                                 ". I enjoy " + w_Affordances + " " + w_Determiner + " " + s_Weapon + " people that I dislike but most especially, one person in particular." +

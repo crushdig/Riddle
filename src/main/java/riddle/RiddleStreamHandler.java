@@ -12,7 +12,7 @@ import java.io.IOException;
 public class RiddleStreamHandler extends SkillStreamHandler
 {
   @SuppressWarnings("unchecked")
-  private static Skill getSkill() throws IOException {
+  private static Skill getSkill() {
     return Skills.standard()
         .addRequestHandlers(
             new LaunchRequestHandler(),
@@ -20,7 +20,8 @@ public class RiddleStreamHandler extends SkillStreamHandler
             new SessionEndedRequestHandler(),
             new HelpIntentHandler(),
             new GetRiddleIntentHandler(),
-            new AnswerIntentHandler(),
+//            new AnswerIntentHandler(),
+            new RepeatIntentHandler(),
             new FallbackIntentHandler())
 
 
@@ -28,7 +29,7 @@ public class RiddleStreamHandler extends SkillStreamHandler
         .build();
   }
   
-  public RiddleStreamHandler() throws IOException {
+  public RiddleStreamHandler() {
     super(getSkill());
   }
 }
