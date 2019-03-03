@@ -29,13 +29,10 @@ public class GetRiddleIntentHandler implements RequestHandler
   public Optional<Response> handle(HandlerInput input)
   {
     Map<String, Object> sessionAttributes = input.getAttributesManager().getSessionAttributes();
-    System.out.println("OUT");
     sessionAttributes.put(Attributes.RIDDLE_STATE_KEY, Attributes.RIDDLE_STATE);
     sessionAttributes.put(Attributes.RESPONSE_KEY, "");
     sessionAttributes.put(Attributes.COUNTER_KEY, 0);
     sessionAttributes.put(Attributes.RIDDLE_SCORE_KEY, 0);
-
-    System.out.println("OUT UTILS");
 
     return genSen.generateSentence(input);
   }

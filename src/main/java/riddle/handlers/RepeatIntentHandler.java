@@ -4,15 +4,13 @@ import com.amazon.ask.dispatcher.request.handler.HandlerInput;
 import com.amazon.ask.dispatcher.request.handler.RequestHandler;
 import com.amazon.ask.model.Response;
 import riddle.model.Attributes;
-import riddle.model.Person;
-import riddle.model.PersonProperty;
 
 import java.util.Map;
 import java.util.Optional;
 
 import static com.amazon.ask.request.Predicates.intentName;
 import static com.amazon.ask.request.Predicates.sessionAttribute;
-import static riddle.Util.RiddleUtils.getQuestionText;
+import static riddle.Util.RiddleUtils.getRiddleRepetition;
 
 public class RepeatIntentHandler implements RequestHandler {
 
@@ -25,10 +23,8 @@ public class RepeatIntentHandler implements RequestHandler {
     public Optional<Response> handle(HandlerInput input) {
         Map<String, Object> sessionAttributes = input.getAttributesManager().getSessionAttributes();
         int counter = (int) sessionAttributes.get(Attributes.COUNTER_KEY);
-        PersonProperty personProperty = (PersonProperty) sessionAttributes.get(Attributes.RIDDLE_PROPERTY_KEY);
-        Person person = (Person) sessionAttributes.get(Attributes.RIDDLE_ITEM_KEY);
 
-        String question = getQuestionText(counter);
+        String question = getRiddleRepetition(counter);
         return input.getResponseBuilder()
                 .withSpeech(question)
                 .withReprompt(question)

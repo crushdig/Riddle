@@ -57,8 +57,8 @@ public class RiddleUtils
 
     }
 
-    public static String getQuestionText(int counter) {
-        return "Here is your " + counter + "th riddle. " + riddle.getQuestion();
+    public static String getRiddleRepetition(int counter) {
+        return "<say-as interpret-as='interjection'> With pleasure! </say-as><break strength='strong'/>" + "Here is your " + counter + "th riddle. " + riddle.getQuestion();
     }
 
 

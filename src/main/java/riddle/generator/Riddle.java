@@ -36,7 +36,6 @@ public class Riddle
             NOC.getFieldValues("Fictional World", this.answer), NOC.getFieldValues("Category", this.answer), NOC.getFieldValues("Negative Talking Points", this.answer),
             NOC.getFieldValues("Positive Talking Points", this.answer));
 
-
     System.out.println(characterDetails.getCharacter());
 
 

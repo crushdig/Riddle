@@ -20,7 +20,7 @@ public class RiddleStreamHandler extends SkillStreamHandler
             new SessionEndedRequestHandler(),
             new HelpIntentHandler(),
             new GetRiddleIntentHandler(),
-//            new AnswerIntentHandler(),
+            new AnswerIntentHandler(),
             new RepeatIntentHandler(),
             new FallbackIntentHandler())
 

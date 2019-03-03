@@ -1,5 +1,6 @@
 package riddle.generator;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Random;
 import java.util.Vector;
@@ -59,21 +60,35 @@ public class ClothingRiddles
 
         if(enemies != null && clothes !=  null && address != null)
         {
-
           int j;
 
           for(j = 0; j < enemies.size(); j++)
           {
-            s_Enemies = (String) enemies.elementAt(j);
+            s_Enemies = enemies.elementAt(j);
           }
           enemies.remove(s_Enemies);
 
           for(j = 0; j < clothes.size(); j++)
           {
-            s_Clothes = (String) clothes.elementAt(j);
-          }
-          clothes.remove(s_Clothes);
+            ArrayList<String> clothesContainer = new ArrayList<>(clothes);
 
+            if(clothesContainer.size() == 1)
+            {
+              s_Clothes = clothesContainer.get(0);
+            }
+            else if(clothesContainer.size() == 2) // 2 items
+            {
+              s_Clothes = clothesContainer.get(0) + " and " + clothesContainer.get(1);
+            }
+            else if(clothesContainer.size() == 3) // 3 items
+            {
+              s_Clothes = clothesContainer.get(0) + ", " + clothesContainer.get(1) + " and " + clothesContainer.get(2);
+            }
+            else if(clothesContainer.size() >= 4)
+            {
+              s_Clothes = clothesContainer.get(0) + ", " + clothesContainer.get(1) + ", " + clothesContainer.get(2) + " and " + clothesContainer.get(3);
+            }
+          }
           for(j = 0; j < address.size(); j++)
           {
             s_Address = (String) address.elementAt(j);
