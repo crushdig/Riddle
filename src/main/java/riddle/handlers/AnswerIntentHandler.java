@@ -6,34 +6,23 @@ import com.amazon.ask.model.IntentRequest;
 import com.amazon.ask.model.Response;
 import com.amazon.ask.model.Slot;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.slf4j.Logger;
+
 import riddle.Util.RiddleUtils;
 import riddle.model.Attributes;
 import riddle.model.Constants;
 import riddle.model.Person;
 import riddle.model.PersonProperty;
-import riddle.generator.GenerateRiddles;
-import riddle.generator.Riddle;
 
 import java.util.*;
 
 import static com.amazon.ask.request.Predicates.intentName;
 import static com.amazon.ask.request.Predicates.sessionAttribute;
-import static org.slf4j.LoggerFactory.getLogger;
 import static riddle.Util.RiddleUtils.getPropertyOfPerson;
 
-public class AnswerIntentHandler implements RequestHandler {
+public class AnswerIntentHandler implements RequestHandler
+{
     private static final Random RANDOM = new Random();
     private static final ObjectMapper MAPPER = new ObjectMapper();
-    private Riddle riddle;
-    private GenerateRiddles riddles;
-
-    private static Logger LOG = getLogger(AnswerIntentHandler.class);
-
-    public AnswerIntentHandler() {
-        riddles = new GenerateRiddles();
-        riddle = riddles.randomiseRiddles();
-    }
 
     @Override
     public boolean canHandle(HandlerInput input) {
@@ -72,8 +61,6 @@ public class AnswerIntentHandler implements RequestHandler {
         {
             response = getSpeechExpressionCon(false);
         }
-
-        AnswerIntentHandler setup = new AnswerIntentHandler();
 
         response += getAnswerText(personProperty, person);
 
@@ -122,7 +109,7 @@ public class AnswerIntentHandler implements RequestHandler {
         return list.get(RANDOM.nextInt(list.size()));
     }
 
-    private boolean compareSlots(Map<String, Slot> slots, Vector<String> correctAnswer) {
+    private boolean compareSlots( Map<String, Slot> slots, Vector<String> correctAnswer) {
         for (Slot slot : slots.values()) {
             for(int i = 0; i < correctAnswer.size(); i++)
             {
