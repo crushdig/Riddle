@@ -16,12 +16,13 @@ public class RiddleStreamHandler extends SkillStreamHandler
     return Skills.standard()
         .addRequestHandlers(
             new LaunchRequestHandler(),
-            new CancelandStopIntentHandler(),
             new SessionEndedRequestHandler(),
             new HelpIntentHandler(),
             new GetRiddleIntentHandler(),
             new AnswerIntentHandler(),
+            new RiddleAndStartOverIntentHandler(),
             new RepeatIntentHandler(),
+            new ExitSkillHandler(),
             new FallbackIntentHandler())
 
 

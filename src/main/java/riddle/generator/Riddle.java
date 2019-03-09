@@ -2,7 +2,6 @@ package riddle.generator;
 
 import riddle.model.Person;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.Vector;
@@ -13,9 +12,15 @@ public class Riddle
   private String answer;
   private String clientRegion = "eu-west-1";
   private String bucketName =  "tsv-lists";
+  private ArrayList<String> hint;
 
   private KnowledgeBaseModule NOC;
   private Person characterDetails;
+
+//  public Riddle(ArrayList<String> hints)
+//  {
+//    hint = hints;
+//  }
 
   public Riddle(String question, String answer) {
     NOC = new KnowledgeBaseModule(clientRegion, bucketName, "Veale's The NOC List.txt", 0);
@@ -51,6 +56,11 @@ public class Riddle
     return answer;
   }
 
+//  public ArrayList<String> getHint()
+//  {
+//    return hint;
+//  }
+
   public Person getPerson()
   {
     return characterDetails;
@@ -85,7 +95,7 @@ public class Riddle
 
       System.out.println(h.getQuestion());
       System.out.println(h.getAnswer());
-
+//      System.out.println(h.getHint());
       System.out.println("Do you want another riddle: ");
       f = s.nextLine();
     }

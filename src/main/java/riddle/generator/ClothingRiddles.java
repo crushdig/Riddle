@@ -1,5 +1,7 @@
 package riddle.generator;
 
+import javafx.scene.control.RadioMenuItem;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Random;
@@ -51,7 +53,7 @@ public class ClothingRiddles
         address = NOC.getFieldValues("Address " + add_Index , character);
       }
 
-      int k = 0;
+      int k;
       for(k = 0; k < 10; k++)
       {
 
@@ -108,6 +110,7 @@ public class ClothingRiddles
                     ". If I had a choice, I would make " + s_Enemies + " public enemy number 1. Who am I?";
             riddleAnswer = character;
             riddles.put(riddle, riddleAnswer);
+//            getHint(riddle, character/*, enemies, clothes, address*/);
           }
           else
           {
@@ -115,12 +118,51 @@ public class ClothingRiddles
                     ". If I had a choice, I would make " + s_Enemies + " public enemy number 1. Who am I?";
             riddleAnswer = character;
             riddles.put(riddle, riddleAnswer);
+//            getHint(riddle, character/*, enemies, clothes, address*/);
           }
         }
       }
     }
     return riddles;
   }
+
+//  public void getHint(String riddle, String character/*, Vector<String> enemies, Vector<String> clothes, Vector<String> address*/)
+//  {
+//    String hint;
+//    Vector<String> category = NOC.getFieldValues("Category", character);
+//    Vector<String> domain = NOC.getFieldValues("Domains", character);
+//    Vector<String> ficWorld = NOC.getFieldValues("Fictional World", character);
+//
+//    ArrayList<String> hints = new ArrayList<String>();
+//
+//    Random random = new Random();
+//    int val;
+//    for(int i  =  0; i < 10; i++)
+//    {
+//      if(!riddle.contains(category.elementAt(i)) &&  !category.isEmpty())
+//      {
+//        val =  random.nextInt(category.size());
+//        hint = "I am " + getIndefiniteArticleFor(category.elementAt(val)) + " " +
+//                category.elementAt(val);
+//        hints.add(hint);
+//
+//      }
+//      if(!riddle.contains(domain.elementAt(i)) && !domain.isEmpty())
+//      {
+//        val =  random.nextInt(domain.size());
+//        hint = "I'm usually present in " + domain.elementAt(val);
+//        hints.add(hint);
+//      }
+//      if(!riddle.contains(ficWorld.elementAt(i)) && !ficWorld.isEmpty())
+//      {
+//        val  =  random.nextInt(ficWorld.size());
+//        hint  = "You've probably seen me in " + ficWorld.elementAt(val);
+//        hints.add(hint);
+//      }
+//
+//      Riddle riddleHint = new Riddle(hints);
+//    }
+//  }
 
   private String getIndefiniteArticleFor(String word)
   {

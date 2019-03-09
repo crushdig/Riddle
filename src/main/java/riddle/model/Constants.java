@@ -12,7 +12,7 @@ public class Constants
 
     // This is the message a user will hear when they try to cancel or stop the
     // skill, or when they finish a quiz.
-    public static String EXIT_SKILL_MESSAGE = "Thank you for playing Blank's Riddle Game!  Let's play again soon!";
+    public static String EXIT_SKILL_MESSAGE = "Thank you for playing!  Let's play again soon!";
 
     public static String REPROMPT_MESSAGE = "If you'd like to start the riddle game, simply ask me to start the riddle game";
 
