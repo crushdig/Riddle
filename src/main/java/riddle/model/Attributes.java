@@ -11,5 +11,4 @@ public final class Attributes
 
     public static final String START_STATE = "_START";
     public static final String RIDDLE_STATE = "_RIDDLE";
-
 }

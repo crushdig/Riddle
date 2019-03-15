@@ -25,7 +25,8 @@ public class AnswerIntentHandler implements RequestHandler
     private static final ObjectMapper MAPPER = new ObjectMapper();
 
     @Override
-    public boolean canHandle(HandlerInput input) {
+    public boolean canHandle(HandlerInput input)
+    {
         return input.matches(intentName("AnswerIntent").and(sessionAttribute(Attributes.RIDDLE_STATE_KEY, Attributes.RIDDLE_STATE)));
     }
 
@@ -117,7 +118,6 @@ public class AnswerIntentHandler implements RequestHandler
                     return true;
                 }
             }
-
         }
         return false;
     }

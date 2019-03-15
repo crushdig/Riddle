@@ -18,12 +18,10 @@ public class RiddleStreamHandler extends SkillStreamHandler
             new LaunchRequestHandler(),
             new SessionEndedRequestHandler(),
             new HelpIntentHandler(),
-            new GetRiddleIntentHandler(),
             new AnswerIntentHandler(),
             new RiddleAndStartOverIntentHandler(),
             new RepeatIntentHandler(),
-            new ExitSkillHandler(),
-            new FallbackIntentHandler())
+            new ExitSkillHandler())
 
 
         .withSkillId("amzn1.ask.skill.5dabbdfb-e2c1-4191-bda7-dc3a6bf61f30")
