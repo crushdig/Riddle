@@ -2,6 +2,7 @@ package riddle.Util;
 
 import com.amazon.ask.dispatcher.request.handler.HandlerInput;
 import com.amazon.ask.model.Response;
+import com.amazon.ask.model.Slot;
 import riddle.model.Attributes;
 import riddle.model.Person;
 import riddle.model.PersonProperty;
@@ -12,6 +13,7 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.Vector;
 
+import static riddle.model.Constants.CHARACTER_NAMES;
 import static riddle.model.Constants.START_RIDDLE_GAME_MESSAGE;
 
 public class RiddleUtils
@@ -79,7 +81,20 @@ public class RiddleUtils
         throw new IllegalStateException("Invalid personProperty");
     }
 
-
+//    public static Optional<Person> getPerson(Map<String, Slot> slots) {
+//        for (Slot slot : slots.values()) {
+//            String value = slot.getValue();
+//            for (PersonProperty personProperty : PersonProperty.values()) {
+//                Optional<Person> person = CHARACTER_NAMES().stream()
+//                        .filter(s -> getPropertyOfPerson(personProperty, s).equals(value))
+//                        .findAny();
+//                if (person.isPresent()) {
+//                    return person;
+//                }
+//            }
+//        }
+//        return Optional.empty();
+//    }
 
 
 

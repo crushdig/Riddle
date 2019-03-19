@@ -1,10 +1,22 @@
 package riddle.model;
 
+import riddle.generator.KnowledgeBaseModule;
+
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 public class Constants
 {
+    private static KnowledgeBaseModule NOC;
+    private String clientRegion = "eu-west-1";
+    private String bucketName =  "tsv-lists";
+
+    public Constants() {
+        NOC = new KnowledgeBaseModule(clientRegion, bucketName, "Veale's The NOC List.txt", 0);
+    }
+
+
     public static String WELCOME_MESSAGE = "Welcome to Blank's Riddle Game! I will soon have other features for you to have fun with. " +
             "you can ask me to start a riddle game.  What would you like to do?";
 
@@ -27,6 +39,12 @@ public class Constants
     public static List<String> INCORRECT_RESPONSES = Arrays.asList("Argh", "Aw man", "Blarg", "Blast", "Boo", "Bummer", "Darn", "D'oh", "Dun dun dun", "Eek", "Honk", "Le sigh",
             "Mamma mia", "Oh boy", "Oh dear", "Oof", "Ouch", "Ruh roh", "Shucks", "Uh oh", "Wah wah", "Whoops a daisy", "Yikes");
 
+    public static final ArrayList<String> CHARACTER_NAMES()
+    {
+        Person person = null;
+        ArrayList<String> CHARACTER_NAMES = new ArrayList<>(NOC.getAllFrames());
 
+        return CHARACTER_NAMES;
+    }
 
 }
