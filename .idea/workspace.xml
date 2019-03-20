@@ -3,7 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="b3f9076c-e701-4652-980c-6fb565fbe09d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/riddle/Util/RiddleUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/riddle/Util/RiddleUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/riddle/generator/ClothingRiddles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/riddle/generator/ClothingRiddles.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/riddle/generator/GenerateRiddles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/riddle/generator/GenerateRiddles.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/riddle/handlers/SkipIntentHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/riddle/handlers/SkipIntentHandler.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
@@ -15,23 +16,15 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/riddle/handlers/AnswerIntentHandler.java">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/riddle/generator/ClothingRiddles.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="156">
-              <caret line="67" selection-start-line="67" selection-end-line="67" />
+            <state relative-caret-position="155">
+              <caret line="129" lean-forward="true" selection-start-line="129" selection-end-line="129" />
               <folding>
-                <element signature="e#4125#4126#0" expanded="true" />
+                <element signature="e#7721#7722#0" expanded="true" />
+                <element signature="e#7781#7782#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/riddle/handlers/HelpIntentHandler.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="19" column="58" selection-start-line="19" selection-start-column="58" selection-end-line="19" selection-end-column="58" />
             </state>
           </provider>
         </entry>
@@ -39,65 +32,20 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/riddle/model/Constants.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="22" column="25" selection-start-line="22" selection-start-column="25" selection-end-line="22" selection-end-column="25" />
+            <state relative-caret-position="424">
+              <caret line="39" column="129" lean-forward="true" selection-start-line="39" selection-start-column="129" selection-end-line="39" selection-end-column="129" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/riddle/handlers/RepeatIntentHandler.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/riddle/generator/GenerateRiddles.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="362">
-              <caret line="26" column="36" selection-start-line="26" selection-start-column="36" selection-end-line="26" selection-end-column="36" />
+            <state relative-caret-position="105">
+              <caret line="7" selection-start-line="7" selection-end-line="7" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/riddle/handlers/SkipIntentHandler.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="295">
-              <caret line="28" column="61" selection-start-line="28" selection-start-column="61" selection-end-line="28" selection-end-column="61" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/riddle/Util/RiddleUtils.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="40" column="49" selection-start-line="40" selection-start-column="49" selection-end-line="40" selection-end-column="49" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/riddle/model/Person.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="462">
-              <caret line="36" selection-start-line="36" selection-end-line="36" />
-              <folding>
-                <element signature="e#5995#5996#0" expanded="true" />
-                <element signature="e#6044#6045#0" expanded="true" />
-                <element signature="e#7231#7232#0" expanded="true" />
-                <element signature="e#7281#7282#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/riddle/model/PersonProperty.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="11" column="25" selection-start-line="11" selection-start-column="25" selection-end-line="11" selection-end-column="25" />
             </state>
           </provider>
         </entry>
@@ -114,6 +62,8 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>riddleu</find>
+      <find>mos</find>
+      <find>london</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -130,20 +80,20 @@
         <option value="$PROJECT_DIR$/src/main/java/riddle/generator/EnemyRiddles.java" />
         <option value="$PROJECT_DIR$/src/main/java/riddle/handlers/GetRiddleIntentHandler.java" />
         <option value="$PROJECT_DIR$/src/main/java/riddle/generator/Riddle.java" />
-        <option value="$PROJECT_DIR$/src/main/java/riddle/generator/ClothingRiddles.java" />
         <option value="$PROJECT_DIR$/src/main/java/riddle/handlers/RiddleAndStartOverIntent.java" />
         <option value="$PROJECT_DIR$/src/main/java/riddle/handlers/ExitSkillHandler.java" />
         <option value="$PROJECT_DIR$/src/main/java/riddle/model/Attributes.java" />
-        <option value="$PROJECT_DIR$/src/main/java/riddle/generator/GenerateRiddles.java" />
         <option value="$PROJECT_DIR$/src/main/java/riddle/handlers/RiddleAndStartOverIntentHandler.java" />
         <option value="$PROJECT_DIR$/src/main/java/riddle/handlers/HelpIntentHandler.java" />
         <option value="$PROJECT_DIR$/src/main/java/riddle/model/Constants.java" />
         <option value="$PROJECT_DIR$/src/main/java/riddle/handlers/RepeatIntentHandler.java" />
         <option value="$PROJECT_DIR$/src/main/java/riddle/RiddleStreamHandler.java" />
-        <option value="$PROJECT_DIR$/src/main/java/riddle/handlers/AnswerIntentHandler.java" />
         <option value="$PROJECT_DIR$/src/main/java/riddle/handlers/dump.java" />
         <option value="$PROJECT_DIR$/src/main/java/riddle/Util/RiddleUtils.java" />
         <option value="$PROJECT_DIR$/src/main/java/riddle/handlers/SkipIntentHandler.java" />
+        <option value="$PROJECT_DIR$/src/main/java/riddle/handlers/AnswerIntentHandler.java" />
+        <option value="$PROJECT_DIR$/src/main/java/riddle/generator/GenerateRiddles.java" />
+        <option value="$PROJECT_DIR$/src/main/java/riddle/generator/ClothingRiddles.java" />
       </list>
     </option>
   </component>
@@ -250,7 +200,7 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553089161962" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553120290156" />
     <property name="extract.method.default.visibility" value="private" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -345,7 +295,7 @@
       <workItem from="1551794616578" duration="21902000" />
       <workItem from="1552305225388" duration="3427000" />
       <workItem from="1552476140751" duration="12518000" />
-      <workItem from="1552850742825" duration="9946000" />
+      <workItem from="1552850742825" duration="19122000" />
     </task>
     <task id="LOCAL-00001" summary="Updated pom">
       <created>1551097215313</created>
@@ -417,11 +367,18 @@
       <option name="project" value="LOCAL" />
       <updated>1552958395688</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="skip intent handler fixed">
+      <created>1553089189900</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1553089189900</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="119437000" />
+    <option name="totallyTimeSpent" value="128613000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="47" y="23" width="1633" height="1027" extended-state="0" />
@@ -437,14 +394,14 @@
       <window_info id="Favorites" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32941177" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49749058" weight="0.32941177" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49749058" visible="true" weight="0.32941177" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49811795" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="9" sideWeight="0.49749058" visible="true" weight="0.31336898" />
+      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.49749058" weight="0.31336898" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5018821" side_tool="true" weight="0.4" />
       <window_info anchor="bottom" id="Version Control" order="11" sideWeight="0.49811795" weight="0.32941177" />
       <window_info anchor="bottom" id="Messages" order="12" sideWeight="0.4987453" weight="0.32941177" />
@@ -460,7 +417,7 @@
       <window_info anchor="right" id="Database" order="8" />
     </layout>
     <layout-to-restore>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.5277778" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24575739" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="aws.explorer" order="3" side_tool="true" />
@@ -477,7 +434,7 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="9" sideWeight="0.49749058" visible="true" weight="0.31428573" />
+      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.49749058" weight="0.31336898" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5018821" side_tool="true" weight="0.4" />
       <window_info anchor="bottom" id="Version Control" order="11" sideWeight="0.49811795" weight="0.32941177" />
       <window_info anchor="bottom" id="Messages" order="12" sideWeight="0.4987453" weight="0.32941177" />
@@ -507,7 +464,8 @@
     <MESSAGE value="Edited answer intent" />
     <MESSAGE value="Fixed Start over and repeat intents" />
     <MESSAGE value="skip intent handler" />
-    <option name="LAST_COMMIT_MESSAGE" value="skip intent handler" />
+    <MESSAGE value="skip intent handler fixed" />
+    <option name="LAST_COMMIT_MESSAGE" value="skip intent handler fixed" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/main/java/quiz/handlers/ExitSkillHandler.java" />
@@ -584,13 +542,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/riddle/generator/GenerateRiddles.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="20" column="93" lean-forward="true" selection-start-line="20" selection-start-column="93" selection-end-line="20" selection-end-column="93" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/riddle/handlers/SessionEndedRequestHandler.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
@@ -605,37 +556,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/riddle/generator/ClothingRiddles.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="23" column="3" lean-forward="true" selection-start-line="9" selection-end-line="23" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/riddle/handlers/RiddleAndStartOverIntentHandler.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
           <caret line="21" column="142" lean-forward="true" selection-start-line="21" selection-start-column="142" selection-end-line="21" selection-end-column="142" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/riddle/model/PersonProperty.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="25" selection-start-line="11" selection-start-column="25" selection-end-line="11" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/riddle/model/Person.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
-          <caret line="36" selection-start-line="36" selection-end-line="36" />
-          <folding>
-            <element signature="e#5995#5996#0" expanded="true" />
-            <element signature="e#6044#6045#0" expanded="true" />
-            <element signature="e#7231#7232#0" expanded="true" />
-            <element signature="e#7281#7282#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -670,23 +594,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/riddle/handlers/AnswerIntentHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="156">
-          <caret line="67" selection-start-line="67" selection-end-line="67" />
-          <folding>
-            <element signature="e#4125#4126#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/riddle/model/Constants.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="22" column="25" selection-start-line="22" selection-start-column="25" selection-end-line="22" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/riddle/model/Attributes.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
@@ -696,11 +603,45 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/riddle/handlers/RepeatIntentHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="362">
+        <state relative-caret-position="390">
           <caret line="26" column="36" selection-start-line="26" selection-start-column="36" selection-end-line="26" selection-end-column="36" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/riddle/handlers/SkipIntentHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/riddle/model/Person.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="462">
+          <caret line="36" selection-start-line="36" selection-end-line="36" />
+          <folding>
+            <element signature="e#5995#5996#0" expanded="true" />
+            <element signature="e#6044#6045#0" expanded="true" />
+            <element signature="e#7231#7232#0" expanded="true" />
+            <element signature="e#7281#7282#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/riddle/model/PersonProperty.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="25" selection-start-line="11" selection-start-column="25" selection-end-line="11" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/riddle/model/Constants.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="424">
+          <caret line="39" column="129" lean-forward="true" selection-start-line="39" selection-start-column="129" selection-end-line="39" selection-end-column="129" />
         </state>
       </provider>
     </entry>
@@ -711,12 +652,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/riddle/handlers/SkipIntentHandler.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/riddle/handlers/AnswerIntentHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="295">
-          <caret line="28" column="61" selection-start-line="28" selection-start-column="61" selection-end-line="28" selection-end-column="61" />
+        <state relative-caret-position="426">
+          <caret line="108" column="17" lean-forward="true" selection-start-line="108" selection-start-column="17" selection-end-line="108" selection-end-column="17" />
+          <folding>
+            <element signature="e#4065#4066#0" expanded="true" />
+            <element signature="e#4125#4126#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/riddle/generator/GenerateRiddles.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/riddle/generator/ClothingRiddles.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="155">
+          <caret line="129" lean-forward="true" selection-start-line="129" selection-end-line="129" />
+          <folding>
+            <element signature="e#7721#7722#0" expanded="true" />
+            <element signature="e#7781#7782#0" expanded="true" />
           </folding>
         </state>
       </provider>

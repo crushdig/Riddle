@@ -2,13 +2,11 @@ package riddle.generator;
 
 import javafx.scene.control.RadioMenuItem;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Random;
-import java.util.Vector;
+import java.util.*;
 
 public class ClothingRiddles
 {
+  private static final Random RANDOM = new Random();
   private String clientRegion = "eu-west-1";
   private String bucketName =  "tsv-lists";
   private KnowledgeBaseModule NOC;
@@ -42,23 +40,42 @@ public class ClothingRiddles
         possessive_Pronoun = "her".toLowerCase();
       }
 
+      Vector<String> fictive_Status = NOC.getFieldValues("Fictive Status", character);
       Vector<String> enemies = NOC.getFieldValues("Opponent", character);
       Vector<String> clothes = NOC.getFieldValues("Seen Wearing", character);
-      Vector<String> address = null;
-      Random RND = new Random();
+      Vector<String> address;
 
-      int add_Index = RND.nextInt(3);
-      if(add_Index == 1 || add_Index == 2 || add_Index == 3)
+      Vector<String> address1 = NOC.getFieldValues("Address 1", character);
+      Vector<String> address2 = NOC.getFieldValues("Address 2", character);
+      Vector<String> address3 = NOC.getFieldValues("Address 3", character);
+
+      if(address1 != null && address2 != null)
       {
-        address = NOC.getFieldValues("Address " + add_Index , character);
+        address = address1 ;
+        address.addAll(address2);
+      }
+      else if(address1 != null && address3 != null)
+      {
+        address = address1;
+        address.addAll(address3);
+      }
+      else if(address2 != null && address3 != null)
+      {
+        address = address2;
+        address.addAll(address3);
+      }
+      else
+      {
+        address = address3;
       }
 
       int k;
       for(k = 0; k < 10; k++)
       {
 
-        String s_Enemies = null, s_Clothes = null, s_Address = null;
-        String c_Determiner;
+        String s_Enemies = "", s_Clothes = "", c_Determiner;
+
+        StringBuilder s_Address = new StringBuilder();
 
         if(enemies != null && clothes !=  null && address != null)
         {
@@ -91,34 +108,63 @@ public class ClothingRiddles
               s_Clothes = clothesContainer.get(0) + ", " + clothesContainer.get(1) + ", " + clothesContainer.get(2) + " and " + clothesContainer.get(3);
             }
           }
+
           for(j = 0; j < address.size(); j++)
           {
-            s_Address = (String) address.elementAt(j);
+            if(j != address.size()-1)
+            {
+              s_Address.append(address.elementAt(j)).append(", ");
+            }
+            else
+            {
+              s_Address.append(address.elementAt(j));
+            }
           }
-          address.remove(s_Address);
 
-          if(s_Enemies == null || s_Clothes == null || s_Address == null)
+          if(s_Enemies == null || s_Clothes == null)
           {
             continue;
           }
 
           c_Determiner = CLOTHES.getFirstValue("Determiner", s_Clothes);
 
-          if(c_Determiner == null)
+          if(fictive_Status != null)
           {
-            riddle = "I am a big deal. " + "You can spot me wearing " + s_Clothes + " lurking around " + s_Address +
-                    ". If I had a choice, I would make " + s_Enemies + " public enemy number 1. Who am I?";
-            riddleAnswer = character;
-            riddles.put(riddle, riddleAnswer);
+            if(c_Determiner == null)
+            {
+              riddle = getRandomItem(GenerateRiddles.FICTIONAL_STATUS_EXPRESSIONS) + "You can spot me wearing " + s_Clothes + " lurking around " + s_Address +
+                      ". If I had a choice, I would make " + s_Enemies + " public enemy number 1. Who am I?";
+              riddleAnswer = character;
+              riddles.put(riddle, riddleAnswer);
 //            getHint(riddle, character/*, enemies, clothes, address*/);
+            }
+            else
+            {
+              riddle = getRandomItem(GenerateRiddles.FICTIONAL_STATUS_EXPRESSIONS) + "You can spot me wearing " + c_Determiner + " " + s_Clothes + " lurking around " + s_Address +
+                      ". If I had a choice, I would make " + s_Enemies + " public enemy number 1. Who am I?";
+              riddleAnswer = character;
+              riddles.put(riddle, riddleAnswer);
+//            getHint(riddle, character/*, enemies, clothes, address*/);
+            }
           }
           else
           {
-            riddle = "I am a big deal. " + "You can spot me wearing " + c_Determiner + " " + s_Clothes + " lurking around " + s_Address +
-                    ". If I had a choice, I would make " + s_Enemies + " public enemy number 1. Who am I?";
-            riddleAnswer = character;
-            riddles.put(riddle, riddleAnswer);
+            if(c_Determiner == null)
+            {
+              riddle = getRandomItem(GenerateRiddles.NON_FICTIONAL_STATUS_EXPRESSIONS) + "You can spot me wearing " + s_Clothes + " lurking around " + s_Address +
+                      ". If I had a choice, I would make " + s_Enemies + " public enemy number 1. Who am I?";
+              riddleAnswer = character;
+              riddles.put(riddle, riddleAnswer);
 //            getHint(riddle, character/*, enemies, clothes, address*/);
+            }
+            else
+            {
+              riddle = getRandomItem(GenerateRiddles.NON_FICTIONAL_STATUS_EXPRESSIONS) + "You can spot me wearing " + c_Determiner + " " + s_Clothes + " lurking around " + s_Address +
+                      ". If I had a choice, I would make " + s_Enemies + " public enemy number 1. Who am I?";
+              riddleAnswer = character;
+              riddles.put(riddle, riddleAnswer);
+//            getHint(riddle, character/*, enemies, clothes, address*/);
+            }
           }
         }
       }
@@ -163,6 +209,10 @@ public class ClothingRiddles
 //      Riddle riddleHint = new Riddle(hints);
 //    }
 //  }
+
+  private  <T> T getRandomItem(List<T> list) {
+    return list.get(RANDOM.nextInt(list.size()));
+  }
 
   private String getIndefiniteArticleFor(String word)
   {

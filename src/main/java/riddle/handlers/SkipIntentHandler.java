@@ -5,8 +5,6 @@ import com.amazon.ask.dispatcher.request.handler.RequestHandler;
 import com.amazon.ask.model.Response;
 import riddle.Util.RiddleUtils;
 import riddle.model.Attributes;
-import riddle.model.Person;
-import riddle.model.PersonProperty;
 
 import java.util.Map;
 import java.util.Optional;
@@ -27,7 +25,7 @@ public class SkipIntentHandler implements RequestHandler {
         int counter = (int) sessionAttributes.get(Attributes.COUNTER_KEY);
 
         String question = RiddleUtils.setupSessionAttributes(sessionAttributes, counter);
-        String speech=  " No Problem! " + question;
+        String speech=  "No Problem!" + question;
 
         return input.getResponseBuilder()
                 .withSimpleCard("RiddleSession", speech)

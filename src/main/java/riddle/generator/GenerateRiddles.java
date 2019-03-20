@@ -1,9 +1,8 @@
 package riddle.generator;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Random;
-import java.util.Set;
+import com.sun.tools.javah.Gen;
+
+import java.util.*;
 
 public class GenerateRiddles{
 
@@ -39,4 +38,9 @@ public class GenerateRiddles{
         Riddle riddle = new Riddle(question, answer);
         return riddle;
     }
+
+    public static List<String> FICTIONAL_STATUS_EXPRESSIONS = Arrays.asList("You'll know me from the fictional world. ", "A legendary character, I am. ",
+            "I live in a fictional world");
+    public static List<String> NON_FICTIONAL_STATUS_EXPRESSIONS = Arrays.asList("I'm a famous public figure. ", "I'm a renowned individual. ",
+            "I am a big deal. ");
 }
