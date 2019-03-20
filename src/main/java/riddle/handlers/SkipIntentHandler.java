@@ -5,13 +5,14 @@ import com.amazon.ask.dispatcher.request.handler.RequestHandler;
 import com.amazon.ask.model.Response;
 import riddle.Util.RiddleUtils;
 import riddle.model.Attributes;
+import riddle.model.Person;
+import riddle.model.PersonProperty;
 
 import java.util.Map;
 import java.util.Optional;
 
 import static com.amazon.ask.request.Predicates.intentName;
 import static com.amazon.ask.request.Predicates.sessionAttribute;
-import static riddle.Util.RiddleUtils.getRiddleRepetition;
 
 public class SkipIntentHandler implements RequestHandler {
 
@@ -25,10 +26,9 @@ public class SkipIntentHandler implements RequestHandler {
         Map<String, Object> sessionAttributes = input.getAttributesManager().getSessionAttributes();
         int counter = (int) sessionAttributes.get(Attributes.COUNTER_KEY);
 
-        counter++;
+        String question = RiddleUtils.setupSessionAttributes(sessionAttributes, counter);
+        String speech=  " No Problem! " + question;
 
-        RiddleUtils skip = new RiddleUtils();
-        String speech = skip.getRiddle(counter);
         return input.getResponseBuilder()
                 .withSimpleCard("RiddleSession", speech)
                 .withSpeech(speech)
@@ -36,5 +36,7 @@ public class SkipIntentHandler implements RequestHandler {
                 .withShouldEndSession(false)
                 .build();
     }
+
+
 
 }

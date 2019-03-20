@@ -3,6 +3,7 @@ package riddle.Util;
 import com.amazon.ask.dispatcher.request.handler.HandlerInput;
 import com.amazon.ask.model.Response;
 import com.amazon.ask.model.Slot;
+import riddle.handlers.SkipIntentHandler;
 import riddle.model.Attributes;
 import riddle.model.Person;
 import riddle.model.PersonProperty;
@@ -13,6 +14,8 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.Vector;
 
+import static com.amazon.ask.request.Predicates.intentName;
+import static com.amazon.ask.request.Predicates.sessionAttribute;
 import static riddle.model.Constants.CHARACTER_NAMES;
 import static riddle.model.Constants.START_RIDDLE_GAME_MESSAGE;
 
@@ -35,7 +38,21 @@ public class RiddleUtils
         {
             sessionAttributes.put(Attributes.RESPONSE_KEY, START_RIDDLE_GAME_MESSAGE + " ");
         }
+        String question = setupSessionAttributes(sessionAttributes, counter);
 
+        String speechText = sessionAttributes.get(Attributes.RESPONSE_KEY) + question;
+
+
+        return input.getResponseBuilder()
+                .withSimpleCard("RiddleSession", speechText)
+                .withSpeech(speechText)
+                .withReprompt(question)
+                .withShouldEndSession(false)
+                .build();
+
+    }
+
+    public static String setupSessionAttributes(Map<String, Object> sessionAttributes, int counter) {
         counter++;
 
         RiddleUtils val = new RiddleUtils();
@@ -47,16 +64,7 @@ public class RiddleUtils
         sessionAttributes.put(Attributes.COUNTER_KEY, counter);
 
 
-        String question = val.getRiddle(counter);
-        String speechText = sessionAttributes.get(Attributes.RESPONSE_KEY) + question;
-
-        return input.getResponseBuilder()
-                .withSimpleCard("RiddleSession", speechText)
-                .withSpeech(speechText)
-                .withReprompt(question)
-                .withShouldEndSession(false)
-                .build();
-
+        return val.getRiddle(counter);
     }
 
     public static String getRiddleRepetition(int counter) {
@@ -107,7 +115,7 @@ public class RiddleUtils
         return riddle.getPerson();
     }
 
-    private static PersonProperty getProperties() {
+    public static PersonProperty getProperties() {
         return PersonProperty.values()[0];
     }
 }
