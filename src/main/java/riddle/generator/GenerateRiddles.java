@@ -1,7 +1,5 @@
 package riddle.generator;
 
-import com.sun.tools.javah.Gen;
-
 import java.util.*;
 
 public class GenerateRiddles{
@@ -40,7 +38,7 @@ public class GenerateRiddles{
     }
 
     public static List<String> FICTIONAL_STATUS_EXPRESSIONS = Arrays.asList("You'll know me from the fictional world. ", "A legendary character, I am. ",
-            "I live in a fictional world");
+            "I live in a fictional world. ");
     public static List<String> NON_FICTIONAL_STATUS_EXPRESSIONS = Arrays.asList("I'm a famous public figure. ", "I'm a renowned individual. ",
             "I am a big deal. ");
 }

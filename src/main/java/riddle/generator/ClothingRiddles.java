@@ -73,7 +73,7 @@ public class ClothingRiddles
       for(k = 0; k < 10; k++)
       {
 
-        String s_Enemies = "", s_Clothes = "", c_Determiner;
+        String s_Enemies = null, s_Clothes = null, c_Determiner;
 
         StringBuilder s_Address = new StringBuilder();
 
@@ -132,7 +132,7 @@ public class ClothingRiddles
           {
             if(c_Determiner == null)
             {
-              riddle = getRandomItem(GenerateRiddles.FICTIONAL_STATUS_EXPRESSIONS) + "You can spot me wearing " + s_Clothes + " lurking around " + s_Address +
+              riddle = getRandomItem(GenerateRiddles.FICTIONAL_STATUS_EXPRESSIONS) + "You can spot me wearing " + s_Clothes + ", lurking around " + s_Address +
                       ". If I had a choice, I would make " + s_Enemies + " public enemy number 1. Who am I?";
               riddleAnswer = character;
               riddles.put(riddle, riddleAnswer);
@@ -140,7 +140,7 @@ public class ClothingRiddles
             }
             else
             {
-              riddle = getRandomItem(GenerateRiddles.FICTIONAL_STATUS_EXPRESSIONS) + "You can spot me wearing " + c_Determiner + " " + s_Clothes + " lurking around " + s_Address +
+              riddle = getRandomItem(GenerateRiddles.FICTIONAL_STATUS_EXPRESSIONS) + "You can spot me wearing " + c_Determiner + " " + s_Clothes + ", lurking around " + s_Address +
                       ". If I had a choice, I would make " + s_Enemies + " public enemy number 1. Who am I?";
               riddleAnswer = character;
               riddles.put(riddle, riddleAnswer);
@@ -151,7 +151,7 @@ public class ClothingRiddles
           {
             if(c_Determiner == null)
             {
-              riddle = getRandomItem(GenerateRiddles.NON_FICTIONAL_STATUS_EXPRESSIONS) + "You can spot me wearing " + s_Clothes + " lurking around " + s_Address +
+              riddle = getRandomItem(GenerateRiddles.NON_FICTIONAL_STATUS_EXPRESSIONS) + "You can spot me wearing " + s_Clothes + ", lurking around " + s_Address +
                       ". If I had a choice, I would make " + s_Enemies + " public enemy number 1. Who am I?";
               riddleAnswer = character;
               riddles.put(riddle, riddleAnswer);
@@ -159,7 +159,7 @@ public class ClothingRiddles
             }
             else
             {
-              riddle = getRandomItem(GenerateRiddles.NON_FICTIONAL_STATUS_EXPRESSIONS) + "You can spot me wearing " + c_Determiner + " " + s_Clothes + " lurking around " + s_Address +
+              riddle = getRandomItem(GenerateRiddles.NON_FICTIONAL_STATUS_EXPRESSIONS) + "You can spot me wearing " + c_Determiner + " " + s_Clothes + ", lurking around " + s_Address +
                       ". If I had a choice, I would make " + s_Enemies + " public enemy number 1. Who am I?";
               riddleAnswer = character;
               riddles.put(riddle, riddleAnswer);

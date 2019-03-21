@@ -63,7 +63,7 @@ public class AnswerIntentHandler implements RequestHandler
             response = getSpeechExpressionCon(false);
         }
 
-        response += getAnswerText(personProperty, person);
+        response += getAnswerText(personProperty, person, correctAnswer);
 
 
         if(counter < 10)
@@ -89,10 +89,18 @@ public class AnswerIntentHandler implements RequestHandler
         }
     }
 
-    public String getAnswerText(PersonProperty personProperty, Person person) {
+    public String getAnswerText(PersonProperty personProperty, Person person, boolean correctAnswer) {
         switch(personProperty) {
             case CHARACTER:
-                return "I have an interesting " + personProperty.getValue() + ". I'm the one and only " + person.getCharacter() + ". ";
+                if(correctAnswer)
+                {
+                    return getRandomItem(Constants.CORRECT_ANSWER_RESPONSES) + personProperty.getValue() + ". I'm the one and only " + person.getCharacter() + ". ";
+                }
+                else
+                {
+                    return getRandomItem(Constants.INCORRECT_ANSWER_RESPONSES) + personProperty.getValue() + ". I'm the one and only " + person.getCharacter() + ". ";
+
+                }
             default:
                 return "I am The one and only " + person.getCharacter();
         }
