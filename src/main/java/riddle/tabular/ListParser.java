@@ -380,7 +380,7 @@ public class ListParser
 
 		String catDir	= dir + "Categories/Fingerprints/";
 		
-		String example = " ((a) '(b 1.5 true 10 \"c d\"))";
+		String example = " ((a) '(b 1.5 true 10 \"c dkdsk\"))";
 		
 		Object list    = ListParser.parse(example);
 		

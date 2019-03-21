@@ -66,7 +66,7 @@ public class AnswerIntentHandler implements RequestHandler
         response += getAnswerText(personProperty, person, correctAnswer);
 
 
-        if(counter < 10)
+        if(counter < 5)
         {
             response += "Your current score is " + riddleGameScore + " out of " + counter + ". ";
             sessionAttributes.put(Attributes.RESPONSE_KEY, response);

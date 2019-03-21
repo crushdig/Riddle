@@ -22,6 +22,7 @@ public class RiddleStreamHandler extends SkillStreamHandler
             new RiddleAndStartOverIntentHandler(),
             new RepeatIntentHandler(),
             new SkipIntentHandler(),
+            new NoAnswerIntentHandler(),
             new ExitSkillHandler())
 
 
