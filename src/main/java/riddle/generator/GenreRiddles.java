@@ -1,10 +1,10 @@
 package riddle.generator;
 
-import java.util.HashMap;
-import java.util.Vector;
+import java.util.*;
 
 public class GenreRiddles
 {
+  private static final Random RANDOM = new Random();
   private String clientRegion = "eu-west-1";
   private String bucketName =  "tsv-lists";
   private KnowledgeBaseModule NOC;
@@ -41,6 +41,8 @@ public class GenreRiddles
       Vector<String> clothes = NOC.getFieldValues("Seen Wearing", character);
       Vector<String> genres = NOC.getFieldValues("Genres", character);
       Vector<String> occupations = NOC.getFieldValues("Category", character);
+      Vector<String> fictive_Status = NOC.getFieldValues("Fictive Status", character);
+
 
       int k = 0;
       for(k = 0; k < 10; k++)
@@ -53,12 +55,27 @@ public class GenreRiddles
 
           int j;
 
-          ;
           for(j = 0; j < clothes.size(); j++)
           {
-            s_Clothes = (String) clothes.elementAt(j);
+            ArrayList<String> clothesContainer = new ArrayList<>(clothes);
+
+            if(clothesContainer.size() == 1)
+            {
+              s_Clothes = clothesContainer.get(0);
+            }
+            else if(clothesContainer.size() == 2) // 2 items
+            {
+              s_Clothes = clothesContainer.get(0) + " and " + clothesContainer.get(1);
+            }
+            else if(clothesContainer.size() == 3) // 3 items
+            {
+              s_Clothes = clothesContainer.get(0) + ", " + clothesContainer.get(1) + " and " + clothesContainer.get(2);
+            }
+            else if(clothesContainer.size() >= 4)
+            {
+              s_Clothes = clothesContainer.get(0) + ", " + clothesContainer.get(1) + ", " + clothesContainer.get(2) + " and " + clothesContainer.get(3);
+            }
           }
-          clothes.remove(s_Clothes);
 
           for(j = 0; j < genres.size(); j++)
           {
@@ -79,24 +96,49 @@ public class GenreRiddles
 
           c_Determiner = CLOTHES.getFirstValue("Determiner", s_Clothes);
 
-          if(c_Determiner == null)
+          if(fictive_Status != null)
           {
-            riddle = "I am " + getIndefiniteArticleFor(s_Occupations) + " " + s_Occupations + ". You'll usually find me in " +
-                    s_Genres + " wearing " + s_Clothes + ". Who am I?";
-            riddleAnswer = character;
-            riddles.put(riddle, riddleAnswer);
+            if(c_Determiner == null)
+            {
+              riddle = "I am " + getIndefiniteArticleFor(s_Occupations) + " " + s_Occupations + ". You'll usually find me in " +
+                      s_Genres + " wearing " + s_Clothes + ". " + getRandomItem(GenerateRiddles.FICTIONAL_STATUS_EXPRESSIONS) + " Who am I?";
+              riddleAnswer = character;
+              riddles.put(riddle, riddleAnswer);
+            }
+            else
+            {
+              riddle = "I am " + getIndefiniteArticleFor(s_Occupations) + " " + s_Occupations + ". You'll usually find me in " +
+                      s_Genres + " wearing " + c_Determiner + " " + s_Clothes + ". " + getRandomItem(GenerateRiddles.FICTIONAL_STATUS_EXPRESSIONS) + " Who am I?";
+              riddleAnswer = character;
+              riddles.put(riddle, riddleAnswer);
+            }
           }
           else
           {
-            riddle = "I am " + getIndefiniteArticleFor(s_Occupations) + " " + s_Occupations + ". You'll usually find me in " +
-                    s_Genres + " wearing " + c_Determiner + " " + s_Clothes + ". Who am I?";
-            riddleAnswer = character;
-            riddles.put(riddle, riddleAnswer);
+            if(c_Determiner == null)
+            {
+              riddle = "I am " + getIndefiniteArticleFor(s_Occupations) + " " + s_Occupations + ". You can find me in " +
+                      s_Genres + " wearing " + s_Clothes + ". " + getRandomItem(GenerateRiddles.NON_FICTIONAL_STATUS_EXPRESSIONS) + " Who am I?";
+              riddleAnswer = character;
+              riddles.put(riddle, riddleAnswer);
+            }
+            else
+            {
+              riddle = "I am " + getIndefiniteArticleFor(s_Occupations) + " " + s_Occupations + ". You'll notice me in " +
+                      s_Genres + " wearing " + c_Determiner + " " + s_Clothes + ". " + getRandomItem(GenerateRiddles.NON_FICTIONAL_STATUS_EXPRESSIONS) +
+                      " Who am I?";
+              riddleAnswer = character;
+              riddles.put(riddle, riddleAnswer);
+            }
           }
         }
       }
     }
     return riddles;
+  }
+
+  private  <T> T getRandomItem(List<T> list) {
+    return list.get(RANDOM.nextInt(list.size()));
   }
 
   private String getIndefiniteArticleFor(String word)
