@@ -26,5 +26,4 @@ public class SessionEndedRequestHandler implements RequestHandler {
         LOG.debug("Session ended with reason: " + sessionEndedRequest.getReason().toString());
         return Optional.empty();
     }
-
 }

@@ -34,7 +34,4 @@ public class SkipIntentHandler implements RequestHandler {
                 .withShouldEndSession(false)
                 .build();
     }
-
-
-
 }

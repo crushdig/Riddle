@@ -32,5 +32,4 @@ public class RepeatIntentHandler implements RequestHandler {
                 .withShouldEndSession(false)
                 .build();
     }
-
 }

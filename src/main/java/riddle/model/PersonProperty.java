@@ -37,5 +37,4 @@ public enum PersonProperty
     PersonProperty(String value) {
         this.value = value;
     }
-
 }

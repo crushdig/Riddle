@@ -320,5 +320,4 @@ public class Person
     {
         this.positiveTalkingPoints = positiveTalkingPoints;
     }
-
 }

@@ -51,5 +51,4 @@ public class Constants
 
         return CHARACTER_NAMES;
     }
-
 }
