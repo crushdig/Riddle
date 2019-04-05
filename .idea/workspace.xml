@@ -2,30 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b3f9076c-e701-4652-980c-6fb565fbe09d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/riddle/generator/Hint.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Riddle.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Riddle.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/riddle/RiddleStreamHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/riddle/RiddleStreamHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/riddle/Util/RiddleUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/riddle/Util/RiddleUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/riddle/generator/ClothingRiddles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/riddle/generator/ClothingRiddles.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/riddle/generator/EnemyRiddles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/riddle/generator/EnemyRiddles.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/riddle/generator/GenerateRiddles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/riddle/generator/GenerateRiddles.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/riddle/generator/GenreRiddles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/riddle/generator/GenreRiddles.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/riddle/generator/Riddle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/riddle/generator/Riddle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/riddle/generator/VehicleRiddles.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/riddle/handlers/AnswerIntentHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/riddle/handlers/AnswerIntentHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/riddle/handlers/ExitSkillHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/riddle/handlers/ExitSkillHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/riddle/handlers/HelpIntentHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/riddle/handlers/HelpIntentHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/riddle/handlers/LaunchRequestHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/riddle/handlers/LaunchRequestHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/riddle/handlers/NoAnswerIntentHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/riddle/handlers/NoAnswerIntentHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/riddle/handlers/RepeatIntentHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/riddle/handlers/RepeatIntentHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/riddle/handlers/RiddleAndStartOverIntentHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/riddle/handlers/RiddleAndStartOverIntentHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/riddle/handlers/SessionEndedRequestHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/riddle/handlers/SessionEndedRequestHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/riddle/handlers/SkipIntentHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/riddle/handlers/SkipIntentHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/riddle/model/Attributes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/riddle/model/Attributes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/riddle/model/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/riddle/model/Constants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/riddle/model/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/riddle/model/Person.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/riddle/model/PersonProperty.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/riddle/model/PersonProperty.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -60,7 +38,19 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/java/riddle/generator/ClothingRiddles.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="-2066">
+                  <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+                  <folding>
+                    <element signature="n#!!doc" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/main/java/riddle/RiddleStreamHandler.java">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="135">
@@ -87,13 +77,37 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="false">
+          <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/main/java/riddle/handlers/AnswerIntentHandler.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="360">
-                  <caret line="41" column="4" selection-start-line="41" selection-start-column="4" selection-end-line="45" selection-end-column="7" />
+                <state relative-caret-position="335">
+                  <caret line="121" column="27" selection-start-line="121" selection-start-column="27" selection-end-line="121" selection-end-column="27" />
                   <folding>
                     <element signature="n#!!doc" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/java/riddle/model/Constants.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="313">
+                  <caret line="46" column="31" selection-start-line="46" selection-start-column="31" selection-end-line="46" selection-end-column="31" />
+                  <folding>
+                    <element signature="n#!!doc" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/java/riddle/generator/Hint.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="240">
+                  <caret line="16" column="5" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -166,7 +180,6 @@
         <option value="$PROJECT_DIR$/src/main/java/riddle/generator/ClothingRiddles.java" />
         <option value="$PROJECT_DIR$/src/main/java/riddle/generator/GenreRiddles.java" />
         <option value="$PROJECT_DIR$/src/main/java/riddle/generator/Riddle.java" />
-        <option value="$PROJECT_DIR$/src/main/java/riddle/handlers/AnswerIntentHandler.java" />
         <option value="$PROJECT_DIR$/src/main/java/riddle/handlers/ExitSkillHandler.java" />
         <option value="$PROJECT_DIR$/src/main/java/riddle/handlers/HelpIntentHandler.java" />
         <option value="$PROJECT_DIR$/src/main/java/riddle/handlers/LaunchRequestHandler.java" />
@@ -181,6 +194,7 @@
         <option value="$PROJECT_DIR$/src/main/java/riddle/model/PersonProperty.java" />
         <option value="$PROJECT_DIR$/src/main/java/riddle/Util/RiddleUtils.java" />
         <option value="$PROJECT_DIR$/src/main/java/riddle/RiddleStreamHandler.java" />
+        <option value="$PROJECT_DIR$/src/main/java/riddle/handlers/AnswerIntentHandler.java" />
       </list>
     </option>
   </component>
@@ -405,7 +419,7 @@
       <workItem from="1554212813226" duration="38000" />
       <workItem from="1554212915354" duration="18075000" />
       <workItem from="1554293641994" duration="1395000" />
-      <workItem from="1554374374549" duration="8678000" />
+      <workItem from="1554374374549" duration="9210000" />
     </task>
     <task id="LOCAL-00001" summary="Updated pom">
       <created>1551097215313</created>
@@ -519,17 +533,23 @@
       <option name="project" value="LOCAL" />
       <updated>1553645829172</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="JavaDocs Addition to all classes, removed vehicle classes, added hint class, edited generateRiddles">
+      <created>1554431109031</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1554431109031</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="179760000" />
+    <option name="totallyTimeSpent" value="180292000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="47" y="23" width="1633" height="1027" extended-state="0" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.28032684" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.28032684" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="aws.explorer" order="3" side_tool="true" />
@@ -548,7 +568,7 @@
       <window_info anchor="bottom" id="Database Changes" order="8" />
       <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.49749058" weight="0.31336898" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5028284" side_tool="true" weight="0.32941177" />
-      <window_info anchor="bottom" id="Version Control" order="11" sideWeight="0.49717158" weight="0.32941177" />
+      <window_info active="true" anchor="bottom" id="Version Control" order="11" sideWeight="0.49717158" visible="true" weight="0.32941177" />
       <window_info anchor="bottom" id="Messages" order="12" sideWeight="0.4987453" weight="0.32941177" />
       <window_info anchor="bottom" id="Duplicate detector" order="13" sideWeight="0.49937266" weight="0.32941177" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -581,7 +601,8 @@
     <MESSAGE value="minor changes" />
     <MESSAGE value="edited genre riddles" />
     <MESSAGE value="..." />
-    <option name="LAST_COMMIT_MESSAGE" value="..." />
+    <MESSAGE value="JavaDocs Addition to all classes, removed vehicle classes, added hint class, edited generateRiddles" />
+    <option name="LAST_COMMIT_MESSAGE" value="JavaDocs Addition to all classes, removed vehicle classes, added hint class, edited generateRiddles" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -684,16 +705,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/riddle/generator/Hint.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="28" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/riddle/generator/VehicleRiddles.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-2112">
@@ -723,16 +734,6 @@
             <element signature="e#2533#2534#0" expanded="true" />
             <element signature="e#2597#2598#0" expanded="true" />
             <element signature="e#2630#2631#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/riddle/generator/ClothingRiddles.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="2" selection-end-column="3" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -839,16 +840,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/riddle/model/Constants.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="693">
-          <caret line="54" column="48" selection-start-line="54" selection-start-column="48" selection-end-line="54" selection-end-column="48" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/riddle/model/Person.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-2007">
@@ -885,16 +876,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/riddle/handlers/AnswerIntentHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="41" column="4" selection-start-line="41" selection-start-column="4" selection-end-line="45" selection-end-column="7" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/riddle/Util/RiddleUtils.java">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -921,6 +902,46 @@
             <element signature="e#385#415#0" expanded="true" />
             <element signature="e#1011#1012#0" expanded="true" />
             <element signature="e#1038#1039#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/riddle/generator/Hint.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="5" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/riddle/generator/ClothingRiddles.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2066">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/riddle/model/Constants.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="313">
+          <caret line="46" column="31" selection-start-line="46" selection-start-column="31" selection-end-line="46" selection-end-column="31" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/riddle/handlers/AnswerIntentHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="335">
+          <caret line="121" column="27" selection-start-line="121" selection-start-column="27" selection-end-line="121" selection-end-column="27" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
           </folding>
         </state>
       </provider>

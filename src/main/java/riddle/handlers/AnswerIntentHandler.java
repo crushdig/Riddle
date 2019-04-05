@@ -115,11 +115,11 @@ public class AnswerIntentHandler implements RequestHandler
             case CHARACTER:
                 if(correctAnswer)
                 {
-                    return "<say-as interpret-as='interjection'>" + getRandomItem(Constants.CORRECT_ANSWER_RESPONSES) + personProperty.getValue() + "! </say-as><break strength='strong'/>" + "I'm the one and only " + person.getCharacter() + ". ";
+                    return getRandomItem(Constants.CORRECT_ANSWER_RESPONSES) + personProperty.getValue() + "! I'm the one and only " + person.getCharacter() + ". ";
                 }
                 else
                 {
-                    return "<say-as interpret-as='interjection'>" + getRandomItem(Constants.INCORRECT_ANSWER_RESPONSES) + personProperty.getValue() + "! </say-as><break strength='strong'/>" + "I'm the one and only " + person.getCharacter() + ". ";
+                    return getRandomItem(Constants.INCORRECT_ANSWER_RESPONSES) + personProperty.getValue() + "! I'm the one and only " + person.getCharacter() + ". ";
 
                 }
             default:
