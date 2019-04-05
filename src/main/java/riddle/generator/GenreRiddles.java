@@ -1,3 +1,6 @@
+/**
+ * GenreRiddles is used to create riddles centred around a character's clothing.
+ */
 package riddle.generator;
 
 import java.util.*;
@@ -12,6 +15,9 @@ public class GenreRiddles
   private KnowledgeBaseModule CLOTHES    = null;
   private KnowledgeBaseModule VEHICLES   = null;
 
+  /**
+   * Sets up all the objects needed for accessing information from the NOC
+   */
   public GenreRiddles() {
     NOC = new KnowledgeBaseModule(clientRegion, bucketName, "Veale's The NOC List.txt", 0);
     CATEGORIES = new KnowledgeBaseModule(clientRegion, bucketName, "Veale's Category Hierarchy.txt", 1);
@@ -19,6 +25,10 @@ public class GenreRiddles
     CLOTHES = new KnowledgeBaseModule(clientRegion, bucketName, "Veale's clothing line.txt", 1);
   }
 
+  /**
+   * Returns all constructed riddles.
+   * @return a HashMap containing riddles
+   */
   public HashMap<String, String> setupGenreRiddles()
   {
     String riddle;
@@ -137,10 +147,21 @@ public class GenreRiddles
     return riddles;
   }
 
+  /**
+   * Returns a random item.
+   * @param list the list of items of the Item object
+   * @param <T>
+   * @return
+   */
   private  <T> T getRandomItem(List<T> list) {
     return list.get(RANDOM.nextInt(list.size()));
   }
 
+  /**
+   * Returns an Indefinite Article for a word.
+   * @param word a string which requires an associated indefinite article
+   * @return a string
+   */
   private String getIndefiniteArticleFor(String word)
   {
     if(word.startsWith("hon"))

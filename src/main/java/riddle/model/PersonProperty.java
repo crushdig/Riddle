@@ -30,10 +30,18 @@ public enum PersonProperty
 
     private String value;
 
+    /**
+     * Returns a value of type string
+     * @return a string value
+     */
     public String getValue() {
         return value;
     }
 
+    /**
+     * Sets up value with respective element
+     * @param value
+     */
     PersonProperty(String value) {
         this.value = value;
     }

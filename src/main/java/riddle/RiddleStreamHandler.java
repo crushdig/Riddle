@@ -1,3 +1,6 @@
+/**
+ * RiddleStreamHandler is used to execute all the intents enabling all available commands to be processed
+ */
 package riddle;
 
 import com.amazon.ask.Skill;

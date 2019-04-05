@@ -1,3 +1,6 @@
+/**
+ * Attributes sets up the titles for properties displayed during game session on alexa dev console
+ */
 package riddle.model;
 
 public final class Attributes

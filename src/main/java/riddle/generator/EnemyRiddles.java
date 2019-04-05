@@ -1,3 +1,6 @@
+/**
+ * EnemyRiddles is used to create riddles centred around a character's enemies.
+ */
 package riddle.generator;
 
 import java.util.HashMap;
@@ -12,7 +15,9 @@ public class EnemyRiddles
     private KnowledgeBaseModule VEHICLES   = null;
     private KnowledgeBaseModule WEAPONS      = null;
 
-
+    /**
+     * Sets up all the objects needed for accessing information from the NOC
+     */
     public EnemyRiddles() {
         NOC = new KnowledgeBaseModule(clientRegion, bucketName, "Veale's The NOC List.txt", 0);
         VEHICLES = new KnowledgeBaseModule(clientRegion, bucketName,"Veale's vehicle fleet.txt", 1);
@@ -20,6 +25,10 @@ public class EnemyRiddles
         WEAPONS = new KnowledgeBaseModule(clientRegion, bucketName,"Veale's weapon arsenal.txt", 1);
     }
 
+    /**
+     * Returns all constructed riddles.
+     * @return a HashMap containing riddles
+     */
     public HashMap<String, String> setupEnemyRiddles()
     {
         String riddle;
@@ -127,6 +136,11 @@ public class EnemyRiddles
         return riddles;
     }
 
+    /**
+     * Returns an Indefinite Article for a word.
+     * @param word a string which requires an associated indefinite article
+     * @return a string
+     */
     private String getIndefiniteArticleFor(String word)
     {
         if(word.startsWith("hon"))

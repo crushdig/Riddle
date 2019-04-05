@@ -1,6 +1,7 @@
+/**
+ * ClothingRiddles is used to create riddles centred around a character's clothing.
+ */
 package riddle.generator;
-
-import javafx.scene.control.RadioMenuItem;
 
 import java.util.*;
 
@@ -14,6 +15,9 @@ public class ClothingRiddles
   private KnowledgeBaseModule CLOTHES    = null;
   private KnowledgeBaseModule VEHICLES   = null;
 
+  /**
+   * Sets up all the objects needed for accessing information from the NOC
+   */
   public ClothingRiddles() {
     NOC = new KnowledgeBaseModule(clientRegion, bucketName, "Veale's The NOC List.txt", 0);
     CATEGORIES = new KnowledgeBaseModule(clientRegion, bucketName, "Veale's Category Hierarchy.txt", 1);
@@ -21,6 +25,10 @@ public class ClothingRiddles
     CLOTHES = new KnowledgeBaseModule(clientRegion, bucketName, "Veale's clothing line.txt", 1);
   }
 
+  /**
+   * Returns all constructed riddles.
+   * @return a HashMap containing riddles
+   */
   public HashMap<String, String> setupClothingRiddles()
   {
     String riddle;
@@ -136,7 +144,7 @@ public class ClothingRiddles
                       ". If I had a choice, I would make " + s_Enemies + " public enemy number 1. Who am I?";
               riddleAnswer = character;
               riddles.put(riddle, riddleAnswer);
-//            getHint(riddle, character/*, enemies, clothes, address*/);
+              getHint(riddle, riddleAnswer);
             }
             else
             {
@@ -144,7 +152,7 @@ public class ClothingRiddles
                       ". If I had a choice, I would make " + s_Enemies + " public enemy number 1. Who am I?";
               riddleAnswer = character;
               riddles.put(riddle, riddleAnswer);
-//            getHint(riddle, character/*, enemies, clothes, address*/);
+              getHint(riddle, riddleAnswer);
             }
           }
           else
@@ -155,7 +163,7 @@ public class ClothingRiddles
                       ". If I had a choice, I would make " + s_Enemies + " public enemy number 1. Who am I?";
               riddleAnswer = character;
               riddles.put(riddle, riddleAnswer);
-//            getHint(riddle, character/*, enemies, clothes, address*/);
+              getHint(riddle, riddleAnswer);
             }
             else
             {
@@ -163,7 +171,7 @@ public class ClothingRiddles
                       ". If I had a choice, I would make " + s_Enemies + " public enemy number 1. Who am I?";
               riddleAnswer = character;
               riddles.put(riddle, riddleAnswer);
-//            getHint(riddle, character/*, enemies, clothes, address*/);
+              getHint(riddle, riddleAnswer);
             }
           }
         }
@@ -172,48 +180,101 @@ public class ClothingRiddles
     return riddles;
   }
 
-//  public void getHint(String riddle, String character/*, Vector<String> enemies, Vector<String> clothes, Vector<String> address*/)
-//  {
-//    String hint;
-//    Vector<String> category = NOC.getFieldValues("Category", character);
-//    Vector<String> domain = NOC.getFieldValues("Domains", character);
-//    Vector<String> ficWorld = NOC.getFieldValues("Fictional World", character);
-//
-//    ArrayList<String> hints = new ArrayList<String>();
-//
-//    Random random = new Random();
-//    int val;
-//    for(int i  =  0; i < 10; i++)
-//    {
-//      if(!riddle.contains(category.elementAt(i)) &&  !category.isEmpty())
-//      {
-//        val =  random.nextInt(category.size());
-//        hint = "I am " + getIndefiniteArticleFor(category.elementAt(val)) + " " +
-//                category.elementAt(val);
-//        hints.add(hint);
-//
-//      }
-//      if(!riddle.contains(domain.elementAt(i)) && !domain.isEmpty())
-//      {
-//        val =  random.nextInt(domain.size());
-//        hint = "I'm usually present in " + domain.elementAt(val);
-//        hints.add(hint);
-//      }
-//      if(!riddle.contains(ficWorld.elementAt(i)) && !ficWorld.isEmpty())
-//      {
-//        val  =  random.nextInt(ficWorld.size());
-//        hint  = "You've probably seen me in " + ficWorld.elementAt(val);
-//        hints.add(hint);
-//      }
-//
-//      Riddle riddleHint = new Riddle(hints);
-//    }
-//  }
+  /**
+   * Returns a list of hints.
+   * @param riddle the riddle for a particular character
+   * @param character the character whom hints need to be generated for
+   * @return a Hints object
+   */
+  public Hint getHint(String riddle, String character)
+  {
+    String hint, hint1 = null, hint2 = null, hint3 = null, hint4;
+    Vector<String> category = NOC.getFieldValues("Category", character);
+    Vector<String> domain = NOC.getFieldValues("Domains", character);
+    Vector<String> ficWorld = NOC.getFieldValues("Fictional World", character);
+    Vector<String> gender = NOC.getFieldValues("Gender", character);
 
+    ArrayList<String> hints = new ArrayList<String>();
+
+    Random random = new Random();
+    int val;
+    if(category != null)
+    {
+      for(int i  =  0; i < category.size(); i++)
+      {
+        if (!riddle.contains(category.elementAt(i)) && !category.isEmpty()) {
+          val = random.nextInt(category.size());
+          hint1 = "I am " + getIndefiniteArticleFor(category.elementAt(val)) + " " +
+                  category.elementAt(val);
+        }
+      }
+      hints.add(hint1);
+    }
+
+    if(domain != null)
+    {
+      for(int i = 0; i < domain.size(); i++)
+      {
+        if (!riddle.contains(domain.elementAt(i)) && !domain.isEmpty()) {
+          val = random.nextInt(domain.size());
+          hint2 = "I'm usually present in " + domain.elementAt(val);
+        }
+      }
+
+      hints.add(hint2);
+    }
+
+    if(ficWorld != null)
+    {
+      for(int i = 0; i < ficWorld.size(); i++)
+      {
+        if(!riddle.contains(ficWorld.elementAt(i)) && !ficWorld.isEmpty())
+        {
+          val  =  random.nextInt(ficWorld.size());
+          hint3  = "You've probably seen me in " + ficWorld.elementAt(val);
+        }
+      }
+      hints.add(hint3);
+    }
+
+    if(gender != null && gender.elementAt(0).equalsIgnoreCase("male"))
+    {
+      if(!riddle.contains(gender.elementAt(0)) && !gender.isEmpty())
+      {
+        hint4 = "I am a man.";
+        hints.add(hint4);
+      }
+    }
+    else
+    {
+      if(gender != null)
+      {
+        if(!riddle.contains(gender.elementAt(0)) && !gender.isEmpty())
+        {
+          hint4 = "I am a woman.";
+          hints.add(hint4);
+        }
+      }
+    }
+
+    return new Hint(hints);
+  }
+
+  /**
+   * Returns a random item.
+   * @param list the list of items of the Item object
+   * @param <T>
+   * @return
+   */
   private  <T> T getRandomItem(List<T> list) {
     return list.get(RANDOM.nextInt(list.size()));
   }
 
+  /**
+   * Returns an Indefinite Article for a word.
+   * @param word a string which requires an associated indefinite article
+   * @return a string
+   */
   private String getIndefiniteArticleFor(String word)
   {
     if(word.startsWith("hon"))

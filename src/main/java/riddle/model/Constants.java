@@ -1,3 +1,6 @@
+/**
+ * Constansts sets up the values that never change at any point in time when used.
+ */
 package riddle.model;
 
 import riddle.generator.KnowledgeBaseModule;
@@ -12,6 +15,9 @@ public class Constants
     private String clientRegion = "eu-west-1";
     private String bucketName =  "tsv-lists";
 
+    /**
+     * Sets up all the objects needed for accessing information from the NOC
+     */
     public Constants() {
         NOC = new KnowledgeBaseModule(clientRegion, bucketName, "Veale's The NOC List.txt", 0);
     }
@@ -44,6 +50,10 @@ public class Constants
     public static List<String> INCORRECT_ANSWER_RESPONSES = Arrays.asList("How couldn't you guess my ", "How disappointing. You forgot my ", "Well, it sure is difficult to state my ",
             "How dare you forget my ");
 
+    /**
+     * Returns all character names
+     * @return a list containing character names
+     */
     public static final ArrayList<String> CHARACTER_NAMES()
     {
         Person person = null;

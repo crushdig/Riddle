@@ -1,8 +1,12 @@
+/**
+ * Riddles is used to retrieve the riddle and answer of a particular character.
+ */
 package riddle.generator;
 
 import riddle.model.Person;
 
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.Scanner;
 import java.util.Vector;
 
@@ -12,16 +16,15 @@ public class Riddle
   private String answer;
   private String clientRegion = "eu-west-1";
   private String bucketName =  "tsv-lists";
-  private ArrayList<String> hint;
 
   private KnowledgeBaseModule NOC;
   private Person characterDetails;
 
-//  public Riddle(ArrayList<String> hints)
-//  {
-//    hint = hints;
-//  }
-
+  /**
+   * Sets up all the objects needed for accessing information from the NOC and initialises the Person object
+   * @param question the riddle for a given character
+   * @param answer the character associated with a riddle
+   */
   public Riddle(String question, String answer) {
     NOC = new KnowledgeBaseModule(clientRegion, bucketName, "Veale's The NOC List.txt", 0);
 
@@ -40,37 +43,43 @@ public class Riddle
             NOC.getFieldValues("Creator", this.answer), NOC.getFieldValues("Creation", this.answer), NOC.getFieldValues("Group Affiliation", this.answer),
             NOC.getFieldValues("Fictional World", this.answer), NOC.getFieldValues("Category", this.answer), NOC.getFieldValues("Negative Talking Points", this.answer),
             NOC.getFieldValues("Positive Talking Points", this.answer));
-
-    System.out.println(characterDetails.getCharacter());
-
-
   }
 
+  /**
+   * Returns every constructed riddle
+   * @return a question in the form of a riddle
+   */
   public String getQuestion()
   {
     return question;
   }
 
+  /**
+   * Returns every constructed answer
+   * @return an answer in the form of a character
+   */
   public String getAnswer()
   {
     return answer;
   }
 
-//  public ArrayList<String> getHint()
-//  {
-//    return hint;
-//  }
-
+  /**
+   * Returns
+   * @return  a Character Details object
+   */
   public Person getPerson()
   {
     return characterDetails;
   }
 
 
-  public static void main(String args[]) {
+  public static void main(String[] args)
+  {
     //have set
     ArrayList<String> riddleSet = new ArrayList<String>(); // set ensures no repetition with riddles occurs, all values are unique
     GenerateRiddles d = new GenerateRiddles();
+    Hint t = new Hint();
+
 
 //    Riddle h = d.randomiseRiddles();
 //    //while h in set
@@ -95,7 +104,7 @@ public class Riddle
 
       System.out.println(h.getQuestion());
       System.out.println(h.getAnswer());
-//      System.out.println(h.getHint());
+      System.out.println(t.getHint());
       System.out.println("Do you want another riddle: ");
       f = s.nextLine();
     }

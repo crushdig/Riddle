@@ -1,3 +1,6 @@
+/**
+ * Person sets up a character by initialising their properties.
+ */
 package riddle.model;
 
 import java.util.Vector;

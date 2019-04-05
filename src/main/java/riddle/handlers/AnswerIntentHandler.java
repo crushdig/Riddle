@@ -1,3 +1,6 @@
+/**
+ * AnswerIntentHandler is used to setup the intent handler for a player's correct or incorrect answer.
+ */
 package riddle.handlers;
 
 import com.amazon.ask.dispatcher.request.handler.HandlerInput;
@@ -19,17 +22,28 @@ import static com.amazon.ask.request.Predicates.intentName;
 import static com.amazon.ask.request.Predicates.sessionAttribute;
 import static riddle.Util.RiddleUtils.getPropertyOfPerson;
 
+
 public class AnswerIntentHandler implements RequestHandler
 {
     private static final Random RANDOM = new Random();
     private static final ObjectMapper MAPPER = new ObjectMapper();
 
+    /**
+     * Returns a boolean value
+     * @param input the user speech as input
+     * @return a boolean of True or False
+     */
     @Override
     public boolean canHandle(HandlerInput input)
     {
         return input.matches(intentName("AnswerIntent").and(sessionAttribute(Attributes.RIDDLE_STATE_KEY, Attributes.RIDDLE_STATE)));
     }
 
+    /**
+     * Returns a response using the builder object
+     * @param input the user speech as input
+     * @return a response
+     */
     @Override
     public Optional<Response> handle(HandlerInput input) {
 
@@ -89,16 +103,23 @@ public class AnswerIntentHandler implements RequestHandler
         }
     }
 
+    /**
+     * Returns a response depending on the condition.
+     * @param personProperty the property of a character
+     * @param person the person who is associated with certain properties
+     * @param correctAnswer the boolean representing whether an answer is correct or not
+     * @return a response dependent of a correct or incorrect answer
+     */
     public String getAnswerText(PersonProperty personProperty, Person person, boolean correctAnswer) {
         switch(personProperty) {
             case CHARACTER:
                 if(correctAnswer)
                 {
-                    return getRandomItem(Constants.CORRECT_ANSWER_RESPONSES) + personProperty.getValue() + ". I'm the one and only " + person.getCharacter() + ". ";
+                    return "<say-as interpret-as='interjection'>" + getRandomItem(Constants.CORRECT_ANSWER_RESPONSES) + personProperty.getValue() + "! </say-as><break strength='strong'/>" + "I'm the one and only " + person.getCharacter() + ". ";
                 }
                 else
                 {
-                    return getRandomItem(Constants.INCORRECT_ANSWER_RESPONSES) + personProperty.getValue() + ". I'm the one and only " + person.getCharacter() + ". ";
+                    return "<say-as interpret-as='interjection'>" + getRandomItem(Constants.INCORRECT_ANSWER_RESPONSES) + personProperty.getValue() + "! </say-as><break strength='strong'/>" + "I'm the one and only " + person.getCharacter() + ". ";
 
                 }
             default:
@@ -106,6 +127,11 @@ public class AnswerIntentHandler implements RequestHandler
         }
     }
 
+    /**
+     * Returns a speech expression.
+     * @param correctAnswer the boolean representing whether an answer is correct or not
+     * @return a speech expression from a list at random
+     */
     private String getSpeechExpressionCon(boolean correctAnswer) {
         if (correctAnswer) {
             return "<say-as interpret-as='interjection'>" + getRandomItem(Constants.CORRECT_RESPONSES) + "! </say-as><break strength='strong'/>";
@@ -114,10 +140,22 @@ public class AnswerIntentHandler implements RequestHandler
         }
     }
 
+    /**
+     * Returns a random item.
+     * @param list the list of items of the Item object
+     * @param <T>
+     * @return
+     */
     private <T> T getRandomItem(List<T> list) {
         return list.get(RANDOM.nextInt(list.size()));
     }
 
+    /**
+     * Returns a boolean if answer is present in the slot
+     * @param slots the String associated with a specific Amazon slot
+     * @param correctAnswer the boolean representing whether an answer is correct or not
+     * @return a boolean object
+     */
     private boolean compareSlots( Map<String, Slot> slots, Vector<String> correctAnswer) {
         for (Slot slot : slots.values()) {
             for(int i = 0; i < correctAnswer.size(); i++)

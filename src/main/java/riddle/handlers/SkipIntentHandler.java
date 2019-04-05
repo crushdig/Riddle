@@ -1,3 +1,6 @@
+/**
+ * SkipIntentHandler is used to skip a riddle in the game when requested for during the game session.
+ */
 package riddle.handlers;
 
 import com.amazon.ask.dispatcher.request.handler.HandlerInput;
@@ -14,11 +17,21 @@ import static com.amazon.ask.request.Predicates.sessionAttribute;
 
 public class SkipIntentHandler implements RequestHandler {
 
+    /**
+     * Returns a boolean value
+     * @param input the user speech as input
+     * @return a boolean of True or False
+     */
     @Override
     public boolean canHandle(HandlerInput input) {
         return input.matches(intentName("SkipIntent").and(sessionAttribute(Attributes.RIDDLE_STATE_KEY, Attributes.RIDDLE_STATE)));
     }
 
+    /**
+     * Returns a response using the builder object
+     * @param input the user speech as input
+     * @return a response
+     */
     @Override
     public Optional<Response> handle(HandlerInput input) {
         Map<String, Object> sessionAttributes = input.getAttributesManager().getSessionAttributes();

@@ -1,3 +1,6 @@
+/**
+ * LaunchRequestHandler is used to start the game session.
+ */
 package riddle.handlers;
 
 import com.amazon.ask.dispatcher.request.handler.HandlerInput;
@@ -14,11 +17,21 @@ import static com.amazon.ask.request.Predicates.requestType;
 
 public class LaunchRequestHandler implements RequestHandler 
 {
+    /**
+     * Returns a boolean value
+     * @param input the user speech as input
+     * @return a boolean of True or False
+     */
     @Override
     public boolean canHandle(HandlerInput input) {
         return input.matches(requestType(LaunchRequest.class));
     }
 
+    /**
+     * Returns a response using the builder object
+     * @param input the user speech as input
+     * @return a response
+     */
     @Override
     public Optional<Response> handle(HandlerInput input) 
     {

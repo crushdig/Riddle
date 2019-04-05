@@ -1,3 +1,6 @@
+/**
+ * RiddleUtils is used to generate setences and setup session attributes for the alexa dev console
+ */
 package riddle.Util;
 
 import com.amazon.ask.dispatcher.request.handler.HandlerInput;
@@ -25,10 +28,19 @@ public class RiddleUtils
     private GenerateRiddles riddles;
 
 
+    /**
+     * Set up riddles object and randomise riddle each time
+     */
     public RiddleUtils() {
         riddles = new GenerateRiddles();
         riddle = riddles.randomiseRiddles();
     }
+
+    /**
+     * Returns a response using the builder object
+     * @param input the user speech as input
+     * @return a response
+     */
     public static Optional<Response> generateSentence(HandlerInput input) {
         Map<String, Object> sessionAttributes = input.getAttributesManager().getSessionAttributes();
 
@@ -52,6 +64,12 @@ public class RiddleUtils
 
     }
 
+    /**
+     *
+     * @param sessionAttributes
+     * @param counter the numeric counter for the riddles position
+     * @return a value for the position of the riddle during the game
+     */
     public static String setupSessionAttributes(Map<String, Object> sessionAttributes, int counter) {
         counter++;
 
@@ -67,28 +85,42 @@ public class RiddleUtils
         return val.getRiddle(counter);
     }
 
+    /**
+     * Returns a riddle for repitition
+     * @param counter the numeric counter for the number of riddles
+     * @return a String containing riddle to be repeated
+     */
     public static String getRiddleRepetition(int counter) {
         return "<say-as interpret-as='interjection'> With pleasure! </say-as><break strength='strong'/>" + "Here is your " + counter + "th riddle. " + riddle.getQuestion();
     }
 
 
+    /**
+     * Return all names associated with a character.
+     * @param personProperty the property associated with a particular person
+     * @param person the person to be guessed in the riddle
+     * @return a vector of names
+     */
     public static Vector<String> getPropertyOfPerson(PersonProperty personProperty, Person person) {
 
         switch (personProperty) {
             case CHARACTER:
-                Vector<String> toReturn = new Vector<>();
-                toReturn.addAll(person.getCharacter());
-                toReturn.addAll(person.getCanonicalName());
+                Vector<String> allCharacterNames = new Vector<>();
+                allCharacterNames.addAll(person.getCharacter());
+                allCharacterNames.addAll(person.getCanonicalName());
 
                 if (person.getAKA()!=null)
                 {
-                    toReturn.addAll(person.getAKA());
+                    allCharacterNames.addAll(person.getAKA());
                 }
-                return toReturn;
+                return allCharacterNames;
         }
         throw new IllegalStateException("Invalid personProperty");
     }
 
+    /**
+     * Search query implementation (Under works)
+     */
 //    public static Optional<Person> getPerson(Map<String, Slot> slots) {
 //        for (Slot slot : slots.values()) {
 //            String value = slot.getValue();
@@ -105,16 +137,28 @@ public class RiddleUtils
 //    }
 
 
-
+    /**
+     *  Returns a riddle.
+     * @param counter the numeric counter for the number of riddles
+     * @return a riddle as a string
+     */
     public String getRiddle(int counter) {
         return "Here is your " + counter + "th riddle. " + riddle.getQuestion();
     }
 
+    /**
+     * Returns the details of a person.
+     * @return an object of person containing details of the person
+     */
     public Person getPerson()
     {
         return riddle.getPerson();
     }
 
+    /**
+     * Returns a property associated with a person.
+     * @return the first property of the person
+     */
     public static PersonProperty getProperties() {
         return PersonProperty.values()[0];
     }
