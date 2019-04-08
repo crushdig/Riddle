@@ -3,6 +3,7 @@
  */
 package riddle.generator;
 
+import riddle.Util.RiddleUtils;
 import riddle.model.Person;
 
 import java.util.ArrayList;
@@ -12,6 +13,7 @@ import java.util.Vector;
 
 public class Riddle
 {
+  private static final Random RANDOM = new Random();
   private String question;
   private String answer;
   private String clientRegion = "eu-west-1";
@@ -19,7 +21,6 @@ public class Riddle
 
   private KnowledgeBaseModule NOC;
   private Person characterDetails;
-
   /**
    * Sets up all the objects needed for accessing information from the NOC and initialises the Person object
    * @param question the riddle for a given character
@@ -45,6 +46,7 @@ public class Riddle
             NOC.getFieldValues("Positive Talking Points", this.answer));
   }
 
+
   /**
    * Returns every constructed riddle
    * @return a question in the form of a riddle
@@ -63,6 +65,23 @@ public class Riddle
     return answer;
   }
 
+
+  public String getHint()
+  {
+    //RiddleUtils t = new RiddleUtils();
+    ArrayList<String> hints = RiddleUtils.getHint(question, answer);
+    ArrayList<Integer> removed_Val = new ArrayList<Integer>();
+
+    int val = RANDOM.nextInt(hints.size());
+
+    while(removed_Val.contains(val))
+    {
+      val = RANDOM.nextInt(hints.size());
+    }
+    removed_Val.add(val);
+    return hints.get(val);
+  }
+
   /**
    * Returns
    * @return  a Character Details object
@@ -78,8 +97,7 @@ public class Riddle
     //have set
     ArrayList<String> riddleSet = new ArrayList<String>(); // set ensures no repetition with riddles occurs, all values are unique
     GenerateRiddles d = new GenerateRiddles();
-    Hint t = new Hint();
-
+//    RiddleUtils t = new RiddleUtils();
 
 //    Riddle h = d.randomiseRiddles();
 //    //while h in set
@@ -104,7 +122,7 @@ public class Riddle
 
       System.out.println(h.getQuestion());
       System.out.println(h.getAnswer());
-      System.out.println(t.getHint());
+      System.out.println(h.getHint());
       System.out.println("Do you want another riddle: ");
       f = s.nextLine();
     }

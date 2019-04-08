@@ -5,27 +5,25 @@ package riddle.Util;
 
 import com.amazon.ask.dispatcher.request.handler.HandlerInput;
 import com.amazon.ask.model.Response;
-import com.amazon.ask.model.Slot;
-import riddle.handlers.SkipIntentHandler;
+import riddle.generator.KnowledgeBaseModule;
 import riddle.model.Attributes;
 import riddle.model.Person;
 import riddle.model.PersonProperty;
 import riddle.generator.GenerateRiddles;
 import riddle.generator.Riddle;
 
-import java.util.Map;
-import java.util.Optional;
-import java.util.Vector;
+import java.util.*;
 
-import static com.amazon.ask.request.Predicates.intentName;
-import static com.amazon.ask.request.Predicates.sessionAttribute;
-import static riddle.model.Constants.CHARACTER_NAMES;
 import static riddle.model.Constants.START_RIDDLE_GAME_MESSAGE;
 
 public class RiddleUtils
 {
-    private static Riddle riddle;
+    public static Riddle riddle;
     private GenerateRiddles riddles;
+//    private String clientRegion = "eu-west-1";
+//    private String bucketName =  "tsv-lists";
+    private static KnowledgeBaseModule NOC = new KnowledgeBaseModule("eu-west-1", "tsv-lists", "Veale's The NOC List.txt", 0);
+
 
 
     /**
@@ -53,6 +51,8 @@ public class RiddleUtils
         String question = setupSessionAttributes(sessionAttributes, counter);
 
         String speechText = sessionAttributes.get(Attributes.RESPONSE_KEY) + question;
+
+        getHint(riddle.getQuestion(), riddle.getAnswer());
 
 
         return input.getResponseBuilder()
@@ -116,6 +116,133 @@ public class RiddleUtils
                 return allCharacterNames;
         }
         throw new IllegalStateException("Invalid personProperty");
+    }
+
+    /**
+     * Returns a list of hints.
+     * @param riddle the riddle for a particular character
+     * @param character the character whom hints need to be generated for
+     * @return a Hints object
+     */
+    public static ArrayList<String> getHint(String riddle, String character)
+    {
+        String hint, hint1 = null, hint2 = null, hint3 = null, hint4;
+        Vector<String> category = NOC.getFieldValues("Category", character);
+        Vector<String> domain = NOC.getFieldValues("Domains", character);
+        Vector<String> ficWorld = NOC.getFieldValues("Fictional World", character);
+        Vector<String> gender = NOC.getFieldValues("Gender", character);
+
+        ArrayList<String> hints = new ArrayList<String>();
+        ArrayList<Integer> removed_Val = new ArrayList<Integer>();
+
+        Random random = new Random();
+        int val;
+        if(category != null)
+        {
+            for(int i  =  0; i < category.size(); i++)
+            {
+                if (!riddle.contains(category.elementAt(i)) && !category.isEmpty()) {
+                    val = random.nextInt(category.size());
+
+                    while(removed_Val.contains(val))
+                    {
+                        val = random.nextInt(category.size());
+                    }
+                    removed_Val.add(val);
+
+                    hint1 = "I am " + getIndefiniteArticleFor(category.elementAt(val)) + " " +
+                            category.elementAt(val);
+
+                }
+            }
+            hints.add(hint1);
+        }
+
+        if(domain != null)
+        {
+            for(int i = 0; i < domain.size(); i++)
+            {
+                if (!riddle.contains(domain.elementAt(i)) && !domain.isEmpty()) {
+                    val = random.nextInt(domain.size());
+
+                    while(removed_Val.contains(val))
+                    {
+                        val = random.nextInt(domain.size());
+                    }
+
+                    removed_Val.add(val);
+                    hint2 = "I'm usually present in " + domain.elementAt(val);
+                }
+            }
+
+            hints.add(hint2);
+        }
+
+        if(ficWorld != null)
+        {
+            for(int i = 0; i < ficWorld.size(); i++)
+            {
+                if(!riddle.contains(ficWorld.elementAt(i)) && !ficWorld.isEmpty())
+                {
+                    val  =  random.nextInt(ficWorld.size());
+
+                    while(removed_Val.contains(val))
+                    {
+                        val = random.nextInt(ficWorld.size());
+                    }
+                    removed_Val.add(val);
+
+                    hint3  = "You've probably seen me in " + ficWorld.elementAt(val);
+                }
+            }
+            hints.add(hint3);
+        }
+
+        if(gender != null && gender.elementAt(0).equalsIgnoreCase("male"))
+        {
+            if(!riddle.contains(gender.elementAt(0)) && !gender.isEmpty())
+            {
+                hint4 = "I am a man.";
+                hints.add(hint4);
+            }
+        }
+        else
+        {
+            if(gender != null)
+            {
+                if(!riddle.contains(gender.elementAt(0)) && !gender.isEmpty())
+                {
+                    hint4 = "I am a woman.";
+                    hints.add(hint4);
+                }
+            }
+        }
+        return hints;
+    }
+
+    /**
+     * Returns an Indefinite Article for a word.
+     * @param word a string which requires an associated indefinite article
+     * @return a string
+     */
+    private static String getIndefiniteArticleFor(String word)
+    {
+        if(word.startsWith("hon"))
+        {
+            return "an";
+        }
+        else if(word.startsWith("eu"))
+        {
+            return "a";
+        }
+        else if("aeiou".indexOf((char)word.charAt(0)) >= 0)
+        {
+            return "an";
+        }
+        else
+        {
+            return "a";
+        }
     }
 
     /**
