@@ -21,7 +21,6 @@ public class EnemyRiddles
     public EnemyRiddles() {
         NOC = new KnowledgeBaseModule(clientRegion, bucketName, "Veale's The NOC List.txt", 0);
         VEHICLES = new KnowledgeBaseModule(clientRegion, bucketName,"Veale's vehicle fleet.txt", 1);
-        CLOTHES = new KnowledgeBaseModule(clientRegion, bucketName, "Veale's clothing line.txt", 1);
         WEAPONS = new KnowledgeBaseModule(clientRegion, bucketName,"Veale's weapon arsenal.txt", 1);
     }
 
@@ -93,40 +92,23 @@ public class EnemyRiddles
                         continue;
                     }
 
-                    c_Determiner = CLOTHES.getFirstValue("Determiner", s_Clothes);
                     w_Determiner = WEAPONS.getFirstValue("Determiner", s_Weapon);
                     w_Affordances = WEAPONS.getFirstValue("Affordances", s_Weapon);
 
 
-                    if(c_Determiner == null && w_Determiner == null)
+                    if(w_Determiner == null)
                     {
-                        riddle = "My name is " + character + ". I'm present in a lot of " + s_Genres + " wearing " + s_Clothes + ". I enjoy " +
-                                w_Affordances + " " + s_Weapon + " people that I dislike but most especially, one person in particular." +
+                        riddle = "My name is " + character + ". I'm present in a lot of " + s_Genres + ". I enjoy " + w_Affordances +
+                                " " + s_Weapon + " people that I dislike but most especially, one person in particular." +
                                 " Can you tell who this person is?";
                         riddleAnswer = s_Enemies;
                         riddles.put(riddle, riddleAnswer);
                     }
-                    if(c_Determiner == null && w_Determiner != null)
+                    if(w_Determiner != null)
                     {
-                        riddle = "My name is " + character + ". I'm present in a lot of " + s_Genres + " wearing " + s_Clothes +
-                                ". I enjoy " + w_Affordances + " " + w_Determiner + " " + s_Weapon + " people that I dislike but most especially, one person in particular." +
+                        riddle = "My name is " + character + ". I'm present in a lot of " + s_Genres + ". I enjoy " + w_Affordances + " " + w_Determiner +
+                                " " + s_Weapon + " people that I dislike but most especially, one person in particular." +
                                 " Can you tell who this person is?";
-                        riddleAnswer = s_Enemies;
-                        riddles.put(riddle, riddleAnswer);
-                    }
-                    if(w_Determiner == null && c_Determiner != null)
-                    {
-                        riddle = "My name is " + character + ". I'm present in a lot of " + s_Genres + " wearing " + c_Determiner + " " + s_Clothes +
-                                ". I enjoy " + w_Affordances + " " + s_Weapon + " people that I dislike but most especially, one person in particular." +
-                                " Can you tell me who this person is?";
-                        riddleAnswer = s_Enemies;
-                        riddles.put(riddle, riddleAnswer);
-                    }
-                    if(c_Determiner != null && w_Determiner != null)
-                    {
-                        riddle = "My name is " + character + ". I'm present in a lot of " + s_Genres + " wearing " + c_Determiner + " " + s_Clothes +
-                                ". I enjoy " + w_Affordances + " " + w_Determiner + " " + s_Weapon + " people that I dislike but most especially, one person in particular." +
-                                " Can you tell me who this person is?";
                         riddleAnswer = s_Enemies;
                         riddles.put(riddle, riddleAnswer);
                     }

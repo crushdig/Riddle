@@ -45,15 +45,8 @@ public class HintIntentHandler implements RequestHandler {
     public Optional<Response> handle(HandlerInput input) {
         Map<String, Object> sessionAttributes = input.getAttributesManager().getSessionAttributes();
 
-//        HintIntentHandler h = new HintIntentHandler();
         String hint = RiddleUtils.riddle.getHint();
         String speech =  "No Problem! " + hint;
-
-//        RiddleUtils t = new RiddleUtils();
-//        ArrayList<String> hints = RiddleUtils.getHint(riddle.getQuestion(), riddle.getAnswer());
-//        int val = RANDOM.nextInt(hints.size());
-//
-//        String speech =  "No Problem! " + hints.get(val);
 
         return input.getResponseBuilder()
                 .withSimpleCard("RiddleSession", speech)
@@ -61,14 +54,5 @@ public class HintIntentHandler implements RequestHandler {
                 .withReprompt(speech)
                 .withShouldEndSession(false)
                 .build();
-    }
-
-    public static void main(String[] args)
-    {
-
-//        HintIntentHandler h = new HintIntentHandler();
-//        System.out.println(riddle.getQuestion());
-//        String hint = riddle.getHint();
-//        System.out.println(hint);
     }
 }

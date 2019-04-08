@@ -20,8 +20,8 @@ public class RiddleUtils
 {
     public static Riddle riddle;
     private GenerateRiddles riddles;
-//    private String clientRegion = "eu-west-1";
-//    private String bucketName =  "tsv-lists";
+
+    private static KnowledgeBaseModule CLOTHES = new KnowledgeBaseModule("eu-west-1", "tsv-lists", "Veale's clothing line.txt", 0);
     private static KnowledgeBaseModule NOC = new KnowledgeBaseModule("eu-west-1", "tsv-lists", "Veale's The NOC List.txt", 0);
 
 
@@ -126,14 +126,19 @@ public class RiddleUtils
      */
     public static ArrayList<String> getHint(String riddle, String character)
     {
-        String hint, hint1 = null, hint2 = null, hint3 = null, hint4;
+        String hint1 = "", hint2 ="", hint3="", hint4="", hint5="", hint6="", hint7;
         Vector<String> category = NOC.getFieldValues("Category", character);
         Vector<String> domain = NOC.getFieldValues("Domains", character);
         Vector<String> ficWorld = NOC.getFieldValues("Fictional World", character);
         Vector<String> gender = NOC.getFieldValues("Gender", character);
+        Vector<String> clothes = NOC.getFieldValues("Seen Wearing", character);
+        Vector<String> creation = NOC.getFieldValues("Creation", character);
+        Vector<String> fictive_Status = NOC.getFieldValues("Fictive Status", character);
+
 
         ArrayList<String> hints = new ArrayList<String>();
         ArrayList<Integer> removed_Val = new ArrayList<Integer>();
+        String c_Determiner = null;
 
         Random random = new Random();
         int val;
@@ -142,16 +147,25 @@ public class RiddleUtils
             for(int i  =  0; i < category.size(); i++)
             {
                 if (!riddle.contains(category.elementAt(i)) && !category.isEmpty()) {
-                    val = random.nextInt(category.size());
-
-                    while(removed_Val.contains(val))
+                    if(category.size() > 1)
                     {
                         val = random.nextInt(category.size());
-                    }
-                    removed_Val.add(val);
 
-                    hint1 = "I am " + getIndefiniteArticleFor(category.elementAt(val)) + " " +
-                            category.elementAt(val);
+                        while(removed_Val.contains(val))
+                        {
+                            val = random.nextInt(category.size());
+                            break;
+                        }
+                        removed_Val.add(val);
+
+                        hint1 = "I am " + getIndefiniteArticleFor(category.elementAt(val)) + " " +
+                                category.elementAt(val);
+                    }
+                    else
+                    {
+                        hint1 = "I am " + getIndefiniteArticleFor(category.elementAt(0)) + " " +
+                                category.elementAt(0);
+                    }
 
                 }
             }
@@ -163,15 +177,23 @@ public class RiddleUtils
             for(int i = 0; i < domain.size(); i++)
             {
                 if (!riddle.contains(domain.elementAt(i)) && !domain.isEmpty()) {
-                    val = random.nextInt(domain.size());
-
-                    while(removed_Val.contains(val))
+                    if(domain.size() > 1)
                     {
                         val = random.nextInt(domain.size());
-                    }
 
-                    removed_Val.add(val);
-                    hint2 = "I'm usually present in " + domain.elementAt(val);
+                        while(removed_Val.contains(val))
+                        {
+                            val = random.nextInt(domain.size());
+                            break;
+                        }
+
+                        removed_Val.add(val);
+                        hint2 = "I'm usually present in " + domain.elementAt(val);
+                    }
+                    else
+                    {
+                        hint2 = "I'm usually present in " + domain.elementAt(0);
+                    }
                 }
             }
 
@@ -184,15 +206,23 @@ public class RiddleUtils
             {
                 if(!riddle.contains(ficWorld.elementAt(i)) && !ficWorld.isEmpty())
                 {
-                    val  =  random.nextInt(ficWorld.size());
-
-                    while(removed_Val.contains(val))
+                    if(ficWorld.size() > 1)
                     {
-                        val = random.nextInt(ficWorld.size());
-                    }
-                    removed_Val.add(val);
+                        val  =  random.nextInt(ficWorld.size());
 
-                    hint3  = "You've probably seen me in " + ficWorld.elementAt(val);
+                        while(removed_Val.contains(val))
+                        {
+                            val = random.nextInt(ficWorld.size());
+                            break;
+                        }
+                        removed_Val.add(val);
+
+                        hint3  = "You've probably seen me in " + ficWorld.elementAt(val);
+                    }
+                    else
+                    {
+                        hint3  = "You've probably seen me in " + ficWorld.elementAt(0);
+                    }
                 }
             }
             hints.add(hint3);
@@ -217,6 +247,92 @@ public class RiddleUtils
                 }
             }
         }
+
+        if(clothes != null)
+        {
+            for(int i = 0; i < clothes.size(); i++)
+            {
+                if(!riddle.contains(clothes.elementAt(i)) && !clothes.isEmpty())
+                {
+                    if(clothes.size() > 1)
+                    {
+                        val  =  random.nextInt(clothes.size());
+
+                        c_Determiner = CLOTHES.getFirstValue("Determiner", clothes.elementAt(val));
+
+                        while(removed_Val.contains(val))
+                        {
+                            val = random.nextInt(clothes.size());
+                            c_Determiner = CLOTHES.getFirstValue("Determiner", clothes.elementAt(val));
+                            break;
+                        }
+                        removed_Val.add(val);
+
+                        if(c_Determiner != null)
+                        {
+                            hint5  = "I feel a little naked if i'm not wearing " + c_Determiner + " " + clothes.elementAt(val) + ".";
+                        }
+                        else
+                        {
+                            hint5  = "I feel a little naked if i'm not wearing " + clothes.elementAt(val) + ".";
+                        }
+                    }
+                    else
+                    {
+                        if(c_Determiner != null)
+                        {
+                            hint5  = "I feel a little naked if i'm not wearing " + c_Determiner + " " + clothes.elementAt(0) + ".";
+                        }
+                        else
+                        {
+                            hint5  = "I feel a little naked if i'm not wearing " + clothes.elementAt(0) + ".";
+                        }
+                    }
+
+                }
+            }
+            hints.add(hint5);
+        }
+
+        if(creation != null)
+        {
+            for(int i = 0; i < creation.size(); i++)
+            {
+                if(!riddle.contains(creation.elementAt(i)) && !creation.isEmpty())
+                {
+                    if(creation.size() > 1)
+                    {
+                        val  =  random.nextInt(creation.size());
+
+                        while(removed_Val.contains(val))
+                        {
+                            val = random.nextInt(creation.size());
+                            break;
+                        }
+                        removed_Val.add(val);
+
+                        hint6 = "The creation of " + creation.elementAt(val) + " was my handiwork.";
+                    }
+                    else
+                    {
+                        hint6 = "The creation of " + creation.elementAt(0) + " was my handiwork.";
+                    }
+                }
+            }
+            hints.add(hint6);
+        }
+
+        if(fictive_Status != null)
+        {
+            hint7 = "I am from the fictional world.";
+        }
+        else
+        {
+            hint7 = "People from the fictional world wished they could be as real as me.";
+        }
+        hints.add(hint7);
+
+
         return hints;
     }
 

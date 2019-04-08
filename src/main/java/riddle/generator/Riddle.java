@@ -77,6 +77,7 @@ public class Riddle
     while(removed_Val.contains(val))
     {
       val = RANDOM.nextInt(hints.size());
+      break;
     }
     removed_Val.add(val);
     return hints.get(val);
